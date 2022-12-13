@@ -1,0 +1,116 @@
+header {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0px;
+}
+.logo-link-wrapper {
+  text-decoration: none;
+}
+header .logo-link {
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (min-width: 736px) {
+  header .logo-link {
+    flex: 0.5;
+  }
+}
+@media only screen and (max-width: 736px) {
+  header .logo-link {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+}
+nav {
+  flex: 1;
+}
+nav .nav-btn {
+  display: none;
+}
+@media only screen and (max-width: 736px) {
+  nav {
+    z-index: 998;
+  }
+  nav .nav-btn {
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    top: 8px;
+    right: 8px;
+  }
+  nav .nav {
+    position: fixed;
+    top: -500px;
+    left: 0;
+    right: 0;
+    transition: all 0.5s ease-out;
+    padding-top: 50px;
+    display: block;
+  }
+  nav input:checked ~ .nav {
+    top: 0;
+  }
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 10px;
+}
+nav ul li {
+  flex: 1;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+  text-decoration-color: transparent;
+  border-radius: var(--radii);
+  background-color: #fafafa;
+  white-space: nowrap;
+  min-height: 45px;
+  color: black;
+}
+nav ul li:focus,
+nav ul li:focus-visible,
+nav ul li:focus-within,
+nav ul li:hover {
+  background-color: aliceblue;
+}
+nav ul li:focus,
+nav ul li:focus-visible,
+nav ul li:focus-within {
+  background-color: var(--colors-lightblue-lightest);
+  text-decoration-color: var(--colors-blue);
+  outline: 2px dotted var(--colors-blue);
+}
+nav ul li a {
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  flex-wrap: nowrap;
+  height: 100%;
+  border-radius: var(--radii);
+}
+nav ul li a:focus,
+nav ul li a:focus-visible,
+nav ul li a:focus-within,
+nav ul li a:hover {
+  text-decoration-color: var(--colors-blue);
+  color: var(--colors-blue);
+}
+nav ul li:has(.navlink--active) a {
+  text-decoration-color: var(--colors-green);
+  text-decoration-thickness: 2px;
+  color: var(--colors-blue);
+}
+nav ul li:has(.navlink--active) a:focus,
+nav ul li:has(.navlink--active) a:focus-visible,
+nav ul li:has(.navlink--active) a:focus-within,
+nav ul li:has(.navlink--active) a:hover {
+  text-decoration-color: purple;
+  text-decoration-thickness: 1px;
+}

@@ -1,0 +1,70 @@
+input,
+textarea,
+.radiogroup .input--radio {
+  min-height: 45px;
+  min-width: 45px;
+  transition: all 200ms ease-in-out;
+  border: 2px solid black;
+  outline: var(--border-outline-default);
+  background-color: #f4f4f5;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 5px;
+}
+input:focus,
+input:focus-visible,
+input:focus-within,
+.radiogroup .input--radio:focus,
+.radiogroup .input--radio:focus-within,
+.radiogroup .input--radio:focus-visible {
+  border-color: var(--colors-blue);
+  outline: var(--colors-blue) dashed 2px;
+  outline-offset: 1px;
+}
+input:hover,
+.radiogroup .input--radio:hover {
+  border-color: var(--colors-blue);
+  background-color: white;
+}
+.radiogroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.radiogroup .input--radio {
+  padding: 10px 15px;
+  border-radius: 40px;
+  position: relative;
+}
+.radiogroup .radiogroup--selected {
+  background: black;
+  color: white;
+}
+.radiogroup .radiogroup--selected:hover {
+  background-color: hsl(0, 0%, 20%);
+  color: white;
+}
+.radiogroup .input--radio input {
+  opacity: 0;
+  position: absolute;
+}
+.input--radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.colorgroup {
+  display: flex;
+  gap: 15px;
+}
+.colorgroup label {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.colorgroup input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
