@@ -7,10 +7,11 @@ export default function Input({
   label,
   onChange,
   className,
+  ...rest
 }) {
   return (
     <>
-      <label className={`${className} input--${type}`} value="pink">
+      <label className={`${className} input--${type}`} value="pink" {...rest}>
         {label ? label : name}
         <input
           className={className}
@@ -34,9 +35,7 @@ export const RadioGroup = ({
   return (
     <>
       <fieldset className="radiogroup">
-        <legend>
-          {legend ? legend : name} {currVal}
-        </legend>
+        <legend>{legend ? legend : name}</legend>
         {values.map((field, index) => (
           <Input
             name={name}

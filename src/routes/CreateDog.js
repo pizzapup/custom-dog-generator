@@ -4,14 +4,15 @@ import Input, { RadioGroup } from "../components/Input/Input";
 import Body from "../assets/custom-dog/Body";
 import Eyes from "../assets/custom-dog/Eyes";
 import Snout from "../assets/custom-dog/Snout";
+import { getNtc, hexToRGB } from "../helpers/colorHelpers";
 export default function CreateDog() {
   const initialValues = {
     name: "fido",
     eyes: "squinty",
     body: "medium",
-    nose: "snout",
+    nose: "long",
     bodyColor: "#c7875b",
-    eyeColor: "#2b9145 ",
+    eyeColor: "#2b9145",
   };
   const [values, setValues] = useState(initialValues);
   const [step, setStep] = useState(1);
@@ -21,6 +22,7 @@ export default function CreateDog() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("submitted", values);
     // writeData(values, ["posts", `user-posts/${uids}`]);
   };
 
@@ -57,46 +59,78 @@ export default function CreateDog() {
         { value: "tongue", type: "radio" },
       ],
     },
-    5: { name: "bodyColor", label: "Body Color" },
-    5: { name: "eyeColor", label: "Eye Color" },
   };
-  const RadioStep = (
-    <RadioGroup
-      values={steps[step].values}
-      name={steps[step].name}
-      currVal={values[steps[step].name]}
-      onChange={handleInputChange}
-    />
-  );
-  const ColorStep = (
+  const RadioStep = ({ currStep = step }) => (
     <>
-      <fieldset className="colorgroup">
-        <legend>Color</legend>
+      <RadioGroup
+        values={steps[currStep].values}
+        name={steps[currStep].name}
+        currVal={values[steps[currStep].name]}
+        onChange={handleInputChange}
+        legend={<div className="legend">{steps[currStep].name}</div>}
+      />
+    </>
+  );
+
+  const stepper = {
+    1: (
+      <>
+        <RadioStep />
         <Input
           type="color"
           name="bodyColor"
-          label="Body Color"
           value={values.bodyColor}
           onChange={handleInputChange}
+          label={<div className="legend">Body Color: {values.bodyColor}</div>}
         />
+      </>
+    ),
+    2: (
+      <>
+        <RadioStep />
         <Input
           type="color"
           name="eyeColor"
-          label="Eye Color"
+          label={<div className="legend">Eye Color: {values.eyeColor}</div>}
           value={values.eyeColor}
           onChange={handleInputChange}
         />
-      </fieldset>
-    </>
-  );
-  const stepper = {
-    1: RadioStep,
-    2: RadioStep,
-    3: RadioStep,
-    4: RadioStep,
-    5: ColorStep,
+      </>
+    ),
+    3: (
+      <>
+        <RadioStep currStep={3} />
+        <RadioStep currStep={4} />
+      </>
+    ),
   };
-
+  const nums = [1, 2, 3];
+  const handleStepper = (num, e) => {
+    e.preventDefault();
+    setStep(num);
+  };
+  const Stepper = (
+    <div className="form-nav">
+      <ul>
+        {nums.map((num, index) => (
+          <li
+            className={`form-nav-item  ${
+              step === num && "form-nav-item--active "
+            }`}
+            key={index}
+          >
+            <button
+              className="form-nav-btn "
+              value={num}
+              onClick={(e) => handleStepper(num, e)}
+            >
+              {steps[num].name}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
   return (
     <>
       <div className="product">
@@ -104,7 +138,7 @@ export default function CreateDog() {
           <div className="chonk-container">
             <Body body={values.body} bodyColor={values.bodyColor} />
             <Eyes eyes={values.eyes} eyeColor={values.eyeColor} />
-            <Snout mouth={values.mouth} nose={values.nose} />
+            <Snout mouth={values.mouth} type={values.nose} />
           </div>
         </div>
         <div className="product-text-wrapper">
@@ -112,54 +146,7 @@ export default function CreateDog() {
           <div className="product-text--subheading">
             Customize your own pizzapup dog illustration.
           </div>
-          <div className="product-text--description">
-            "Hello! My name is {values.name}. I am mostly the color{" "}
-            <span
-              style={{
-                textDecoration: `${values.bodyColor} underline`,
-              }}
-            >
-              {values.color}
-            </span>
-            . I have a {values.nose} nose. My eyes are the color{" "}
-            <span
-              style={{
-                textDecoration: `${values.eyeColor} underline`,
-              }}
-            >
-              {values.eyeColor}
-            </span>{" "}
-            and {values.eyes}. I have a {values.body} body."
-          </div>
-          <div className="form-nav">
-            <ul>
-              <li>
-                <button className="form-nav-btn" onClick={() => setStep(1)}>
-                  Body
-                </button>
-              </li>
-              <li>
-                <button className="form-nav-btn" onClick={() => setStep(2)}>
-                  Eyes
-                </button>
-              </li>
-              <li>
-                <button className="form-nav-btn" onClick={() => setStep(3)}>
-                  Nose
-                </button>
-              </li>
-              <li>
-                <button className="form-nav-btn" onClick={() => setStep(4)}>
-                  Snout
-                </button>
-              </li>
-              <li>
-                <button className="form-nav-btn" onClick={() => setStep(5)}>
-                  Color
-                </button>
-              </li>
-            </ul>
-          </div>
+          <Paragraph {...values} />
           <form onSubmit={handleSubmit} className="create-dog-form">
             <Input
               type="text"
@@ -167,11 +154,59 @@ export default function CreateDog() {
               value={values.name}
               onChange={handleInputChange}
             />
-            {step && stepper[step]}
-            <button>submit button ?</button>
+            <div className="form-steps">
+              {Stepper}
+              {step && stepper[step]}
+              {step}
+              <div className="stepper-btns">
+                {step !== 1 && (
+                  <button
+                    className="previous-next-btn"
+                    onClick={() => setStep(step - 1)}
+                  >
+                    go back to {steps[step - 1].name}
+                  </button>
+                )}
+                {step !== 3 && (
+                  <button
+                    className="previous-next-btn"
+                    onClick={() => setStep(step + 1)}
+                  >
+                    next selection(edit {steps[step + 1].name})
+                  </button>
+                )}
+              </div>
+              <button type="submit">Submit?</button>
+            </div>
           </form>
         </div>
       </div>
     </>
   );
 }
+
+export const Paragraph = (values) => {
+  return (
+    <>
+      <div className="product-text--description">
+        "Hello! My name is {values.name}. I am mostly the color{" "}
+        <span
+          style={{
+            textDecoration: `${values.bodyColor} underline`,
+          }}
+        >
+          {values.bodyColor}
+        </span>
+        . I have a {values.nose} nose. My eyes are the color{" "}
+        <span
+          style={{
+            textDecoration: `${values.eyeColor} underline`,
+          }}
+        >
+          {values.eyeColor}
+        </span>{" "}
+        and {values.eyes}. I have a {values.body} body."
+      </div>
+    </>
+  );
+};

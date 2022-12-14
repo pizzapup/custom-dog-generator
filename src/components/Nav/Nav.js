@@ -20,7 +20,7 @@ export function Nav() {
           />
           <ul className="nav">
             {pages.map((page, index) => (
-              <li key={index}>
+              <li key={index} className="navlink-li">
                 <NavLink
                   to={page.to}
                   className={({ isActive }) =>

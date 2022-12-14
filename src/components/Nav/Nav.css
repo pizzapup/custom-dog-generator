@@ -59,7 +59,7 @@ nav ul {
   padding: 0;
   gap: 10px;
 }
-nav ul li {
+.navlink-li {
   flex: 1;
   border: 2px solid transparent;
   outline: 2px solid transparent;
@@ -70,20 +70,20 @@ nav ul li {
   min-height: 45px;
   color: black;
 }
-nav ul li:focus,
-nav ul li:focus-visible,
-nav ul li:focus-within,
-nav ul li:hover {
+.navlink-li:focus,
+.navlink-li:focus-visible,
+.navlink-li:focus-within,
+.navlink-li:hover {
   background-color: aliceblue;
 }
-nav ul li:focus,
-nav ul li:focus-visible,
-nav ul li:focus-within {
+.navlink-li:focus,
+.navlink-li:focus-visible,
+.navlink-li:focus-within {
   background-color: var(--colors-lightblue-lightest);
   text-decoration-color: var(--colors-blue);
   outline: 2px dotted var(--colors-blue);
 }
-nav ul li a {
+.navlink-li .navlink {
   text-decoration-color: transparent;
   text-underline-offset: 2px;
   text-align: center;
@@ -95,22 +95,22 @@ nav ul li a {
   height: 100%;
   border-radius: var(--radii);
 }
-nav ul li a:focus,
-nav ul li a:focus-visible,
-nav ul li a:focus-within,
-nav ul li a:hover {
+.navlink-li .navlink:focus,
+.navlink-li .navlink:focus-visible,
+.navlink-li .navlink:focus-within,
+.navlink-li .navlink:hover {
   text-decoration-color: var(--colors-blue);
   color: var(--colors-blue);
 }
-nav ul li:has(.navlink--active) a {
+.navlink-li:has(.navlink--active) .navlink {
   text-decoration-color: var(--colors-green);
   text-decoration-thickness: 2px;
   color: var(--colors-blue);
 }
-nav ul li:has(.navlink--active) a:focus,
-nav ul li:has(.navlink--active) a:focus-visible,
-nav ul li:has(.navlink--active) a:focus-within,
-nav ul li:has(.navlink--active) a:hover {
+.navlink-li:has(.navlink--active) .navlink:focus,
+.navlink-li:has(.navlink--active) .navlink:focus-visible,
+.navlink-li:has(.navlink--active) .navlink:focus-within,
+.navlink-li:has(.navlink--active) .navlink:hover {
   text-decoration-color: purple;
   text-decoration-thickness: 1px;
 }
