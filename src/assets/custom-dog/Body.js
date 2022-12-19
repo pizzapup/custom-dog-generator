@@ -497,7 +497,8 @@ export default function Body({
   body = "chonky",
   main = "#c7875b",
   outline = "black",
+  bodyColor = main,
 }) {
   const Component = list[body];
-  return <Component main={main} outline={outline} />;
+  return <Component main={bodyColor} outline={outline} />;
 }

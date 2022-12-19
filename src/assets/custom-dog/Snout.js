@@ -14,15 +14,20 @@ const Mouth = ({ mouth, mouthType, color }) => {
   );
 };
 
-export default function Snout({ type = "long", mouth = "smile" }) {
+export default function Snout({
+  type = "long",
+  mouth = "smile",
+  noseColor = "black",
+  mouthColor = "black",
+}) {
   const noseData = noses[type];
   const noseOptions = noseData.options;
   const mouthType = noseOptions[mouth];
   const colors = {
-    outline: { fill: "transparent", stroke: "black" },
-    main: { fill: "black", stroke: "transparent" },
+    outline: { fill: "transparent", stroke: mouthColor },
+    main: { fill: mouthColor, stroke: "transparent" },
     tongue: {
-      outline: { fill: "black", stroke: "transparent" },
+      outline: { fill: mouthColor, stroke: "transparent" },
       tongue: { fill: "pink", stroke: "transparent" },
     },
   };
@@ -30,7 +35,7 @@ export default function Snout({ type = "long", mouth = "smile" }) {
   return (
     <>
       <svg viewBox="0 0 3200 3200">
-        <path d={noseData.path} fill="black" />
+        <path d={noseData.path} fill={noseColor} />
       </svg>
       <Mouth mouth={mouth} mouthType={mouthType} color={color} />
     </>
