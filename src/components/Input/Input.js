@@ -12,7 +12,7 @@ export default function Input({
   return (
     <>
       <label className={`${className} input--${type}`} value="pink" {...rest}>
-        {label ? label : name}
+        <span>{label ? label : name}</span>
         <input
           className={className}
           type={type}

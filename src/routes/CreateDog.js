@@ -7,6 +7,8 @@ import Eyes from "../assets/custom-dog/Eyes";
 import Snout from "../assets/custom-dog/Snout";
 import { getNtc, hexToRGB } from "../helpers/colorHelpers";
 import { colorData } from "./data";
+import { writeData } from "../firebase/dbHelpers";
+const uids = "default-user";
 export default function CreateDog() {
   const initialValues = {
     name: "fido",
@@ -29,7 +31,7 @@ export default function CreateDog() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submitted", values);
-    // writeData(values, ["posts", `user-posts/${uids}`]);
+    writeData(values, ["posts", `user-posts/${uids}`]);
   };
   const nums = [1, 2, 3];
   const steps = {
@@ -84,7 +86,7 @@ export default function CreateDog() {
 
   const stepper = {
     1: (
-      <>
+      <div className="form-step">
         <RadioStep />
         <ColorGroup
           name="bodyColor"
@@ -93,10 +95,10 @@ export default function CreateDog() {
           onChange={handleInputChange}
           legend={<div className="legend">Body Color: {values.bodyColor}</div>}
         />
-      </>
+      </div>
     ),
     2: (
-      <>
+      <div className="form-step">
         <RadioStep />
         <ColorGroup
           name="eyeColor"
@@ -105,13 +107,13 @@ export default function CreateDog() {
           onChange={handleInputChange}
           legend={<div className="legend">Eye Color: {values.eyeColor}</div>}
         />
-      </>
+      </div>
     ),
     3: (
-      <>
+      <div className="form-step">
         <RadioStep currStep={3} />
         <RadioStep currStep={4} />
-      </>
+      </div>
     ),
   };
 
@@ -164,7 +166,7 @@ export default function CreateDog() {
                   <button
                     className="previous-next-btn previous-btn"
                     title={`customize ${steps[step - 1].name}`}
-                    onClick={() => setStep(step - 1)}
+                    onClick={(e) => handleStepper(step - 1, e)}
                   >
                     back
                     <span className="sr-only">
@@ -176,7 +178,7 @@ export default function CreateDog() {
                   <button
                     className="previous-next-btn next-btn"
                     title={`customize ${steps[step + 1].name}`}
-                    onClick={() => setStep(step + 1)}
+                    onClick={(e) => handleStepper(step + 1, e)}
                   >
                     next
                     <span className="sr-only">next:</span>
