@@ -74,10 +74,7 @@ html {
   grid-template-columns: repeat(
     auto-fill,
     minmax(
-      max(
-        var(--colorgroupColorsGrid-min-width),
-        var(--colorgroupColorsGrid-max-width)
-      ),
+      max(var(--colorgroupColorsGrid-min-width), var(--colorgroupColorSize)),
       1fr
     )
   );
@@ -155,15 +152,11 @@ html {
 }
 @media only screen and (max-width: 800px) {
   .colorgroup {
-    --colorgroupColorSize: 7em;
-    --colorgroupColorsGrid-min-width: 60px;
-    --colorgroupColorsGrid-max-width: 8em;
+    --colorgroupColorSize: 5em;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 300px) {
   .colorgroup {
-    --colorgroupColorSize: 7em;
-    --colorgroupColorsGrid-min-width: 60px;
-    --colorgroupColorsGrid-max-width: 7em;
+    --colorgroupColorSize: 4em;
   }
 }

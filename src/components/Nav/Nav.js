@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { pages } from "../../App";
 import Logo from "../Logo/Logo";
 import "./Nav.css";
+import { BurgerIcon } from "../../assets/icons/BurgerIcon";
 
 export function Nav() {
   return (
@@ -18,6 +19,10 @@ export function Nav() {
             label="nav menu button"
             title="navigation menu button"
           />
+          <label htmlFor="nav-menu-btn" className="burger-icon">
+            <BurgerIcon />
+          </label>
+
           <ul className="nav">
             {pages.map((page, index) => (
               <li key={index} className="navlink-li">

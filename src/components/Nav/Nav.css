@@ -11,47 +11,14 @@ header .logo-link {
   display: flex;
   justify-content: center;
 }
-@media only screen and (min-width: 736px) {
-  header .logo-link {
-    flex: 0.5;
-  }
-}
-@media only screen and (max-width: 736px) {
-  header .logo-link {
-    height: 50px;
-    margin-bottom: 10px;
-  }
-}
+
 nav {
   flex: 1;
 }
 nav .nav-btn {
   display: none;
 }
-@media only screen and (max-width: 736px) {
-  nav {
-    z-index: 998;
-  }
-  nav .nav-btn {
-    display: flex;
-    position: fixed;
-    z-index: 999;
-    top: 8px;
-    right: 8px;
-  }
-  nav .nav {
-    position: fixed;
-    top: -500px;
-    left: 0;
-    right: 0;
-    transition: all 0.5s ease-out;
-    padding-top: 50px;
-    display: block;
-  }
-  nav input:checked ~ .nav {
-    top: 0;
-  }
-}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -79,7 +46,7 @@ nav ul {
 .navlink-li:focus,
 .navlink-li:focus-visible,
 .navlink-li:focus-within {
-  background-color: var(--colors-lightblue-lightest);
+  background-color: aliceblue;
   text-decoration-color: var(--colors-blue);
   outline: 2px dotted var(--colors-blue);
 }
@@ -113,4 +80,107 @@ nav ul {
 .navlink-li:has(.navlink--active) .navlink:hover {
   text-decoration-color: purple;
   text-decoration-thickness: 1px;
+}
+@media only screen and (min-width: 736px) {
+  header .logo-link {
+    flex: 0.5;
+  }
+}
+@media only screen and (max-width: 736px) {
+  header .logo-link {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  nav {
+    z-index: 998;
+    background-color: #fafafa;
+    width: 100%;
+  }
+  .logo {
+    background-color: #fafafa;
+  }
+
+  nav .nav-btn {
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    top: 8px;
+    right: 8px;
+    opacity: 0;
+    width: 45px;
+    height: 40px;
+  }
+  nav .nav {
+    position: fixed;
+    top: -500px;
+    left: 0;
+    right: 0;
+    transition: all 0.5s ease-out;
+    padding-top: 50px;
+    display: block;
+  }
+  nav input:checked ~ .nav {
+    top: 0;
+  }
+
+  .navlink {
+    outline: var(--bo-color-solid);
+    padding: 25px 20px;
+    margin: 10px;
+  }
+  .navlink-li:focus,
+  .navlink-li:focus-visible,
+  .navlink-li:focus-within,
+  .navlink-li:hover {
+    background-color: #fafafa;
+    border: var(--border-outline-default);
+    outline: var(--border-outline-default);
+  }
+  .navlink-li:focus .navlink,
+  .navlink-li:focus-visible .navlink,
+  .navlink-li:focus-within .navlink {
+    background-color: #fafafa;
+    border: var(--bo-color-solid);
+    outline: var(--bo-color-dashed);
+    outline-offset: 1px;
+  }
+  .navlink-li:focus .navlink,
+  .navlink-li:focus-visible .navlink,
+  .navlink-li:focus-within .navlink,
+  .navlink-li:hover .navlink {
+    background-color: aliceblue;
+  }
+  .container {
+    border: var(--border-outline-default);
+    cursor: pointer;
+    padding: 5px 8px;
+  }
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  nav .burger-icon {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    padding: 0px;
+  }
+  .bar {
+    border-radius: 10px;
+  }
+  nav input:checked ~ .burger-icon .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  nav input:checked ~ .burger-icon .bar2 {
+    opacity: 0;
+  }
+  nav input:checked ~ .burger-icon .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
 }

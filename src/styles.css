@@ -15,9 +15,12 @@
   --colors-lightblue: rgb(132, 214, 255);
   --colors-green: rgb(1, 152, 64);
   --colors-offwhite: rgb(253, 248, 223);
+  --colors-offwhite-opacity: rgba(253, 248, 223, 0.6);
+  --colors-white-opacity: rgba(255, 255, 255, 0.6);
+  --colors-white: rgb(255, 255, 255);
   --colors-offwhite-d: hsl(50, 88%, 80%);
   --colors-offwhite-l: hsl(50, 88%, 98%);
-  --colors-grey-l: #f0f0f0;
+  --colors-lightgrey: #f0f0f0;
 
   --radii-sm: 2px;
   --radii: 3px;
@@ -50,8 +53,8 @@ html {
 /* reset list styles */
 ul {
   list-style: none;
-  margin: 0px;
-  padding: 0px;
+  /* margin: 0px; */
+  /* padding: 0px; */
 }
 
 a {

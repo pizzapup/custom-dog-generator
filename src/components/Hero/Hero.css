@@ -1,9 +1,70 @@
 .hero {
   margin: 0 auto;
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
   background-image: url("../../assets/images/tiny-dog.JPG");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+}
+/* .hero:hover {
+  transition: background 1s ease;
+  background-image: url("../../assets/images/tiny-dog-tongue.png");
+} */
+.hero-section {
+  background-color: var(--colors-white);
+  min-height: 30vh;
+  padding: 20px 25px;
+  border-radius: 5px;
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+  flex-direction: column;
+  top: 30px;
+  right: 0;
+}
+
+.hero-section span {
+  display: block;
+  font-weight: lighter;
+  font-size: x-large;
+}
+.hero-section ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px;
+}
+.hero-section li {
+  flex: 1;
+  min-height: 45px;
+  min-width: 45px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: aliceblue;
+  border: var(--border-outline-default);
+}
+.hero-section li:hover {
+  transition: background 250ms ease;
+  background-color: var(--colors-yellow);
+}
+.hero-section li:nth-child(2):hover {
+  background-color: var(--colors-orange);
+}
+.hero-section li:nth-child(3):hover {
+  background-color: var(--colors-lightblue);
+}
+.hero-section li:nth-child(4):hover {
+  background-color: var(--colors-pink);
+}
+.hero-section li:focus,
+.hero-section li:focus-visible,
+.hero-section li:focus-within {
+  outline: var(--bo-color-dashed);
+  border: var(--bo-color-solid);
+  outline-offset: 1px;
 }
