@@ -37,6 +37,7 @@ Generate your own custom pizzapup dog illustration. Choose the type of body, eye
   - Hosting - application uses firebase hosting. [firebase hosting docs](https://firebase.google.com/docs/hosting)
   - Realtime database - data for application is stored in firebase realtime database. Data submitted through the create-dog-form is stored in firebase. [realtime database docs](https://firebase.google.com/docs/database)
 - CSS - good ol classic css
+- Color Name Generator - color input is processed into the nearest matching color name (#ffffff = white) 
 
 ## Pages 
 
@@ -77,7 +78,7 @@ Generate your own custom pizzapup dog illustration. Choose the type of body, eye
 
 <div align="right"><a href="#table-of-contents">back to top</a></div>
 
-Choose from a collection of dog coat and eye colors based on colors found in various dog breeds. 
+Choose from a collection of dog coat and eye colors based on colors found in various dog breeds, or create your own using the color picker. Color names are generated using the hex code of the selected color. The function that finds the name is based on the HexColorToColorName repository. 
 - HexColorToColorName | [GitHub Repository](https://github.com/jeff3754/HexColorToColorName#readme)
 
 #### Steps
