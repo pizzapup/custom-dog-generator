@@ -1,3 +1,5 @@
+import ResumePDF from "./Hardwick-2022.pdf";
+
 const history = [
   {
     title: "freelance designer & developer",
@@ -120,8 +122,8 @@ const socials = [
     social: "resume",
     iconImg: "fileArrowDown",
     data: {
-      href: "resumepdf",
-      download: "download",
+      href: ResumePDF,
+      download: "pizzapup-resume",
       title: "download resume PDF",
     },
   },
