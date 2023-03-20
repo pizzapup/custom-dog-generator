@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 export default function Hero() {
@@ -5,20 +6,15 @@ export default function Hero() {
     <>
       <div className="hero">
         <div className="hero-section">
-          <h1>
-            pizzapup <span>Design & Illustration</span>
-          </h1>
-          <ul>
-            <li>
-              shop
-              {/* DRAW DUCKS IN RAINJACKETS ! <3 :-) shopify, society6, etsy?, buy me a coffee */}
-            </li>
-            <li>commissions</li>
-            <li>contact</li>
-            <li>about</li>
-          </ul>
+          <h1>Custom Dog Generator</h1>
+          <h2> by Pizzapup Design & Illustration</h2>
+          <div className="hero-btn">
+            <Link to="/createdog">Start Customizing</Link>
+          </div>
         </div>
       </div>
     </>
   );
 }
+
+/* DRAW DUCKS IN RAINJACKETS ! <3 :-) shopify, society6, etsy?, buy me a coffee */

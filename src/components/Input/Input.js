@@ -31,6 +31,7 @@ export const RadioGroup = ({
   legend,
   currVal,
   onChange,
+  className,
 }) => {
   return (
     <>
@@ -44,7 +45,11 @@ export const RadioGroup = ({
             value={field.value}
             label={field.value}
             onChange={onChange}
-            className={field.value === currVal ? "radiogroup--selected" : ""}
+            className={
+              field.value === currVal
+                ? `radiogroup--selected ${className}`
+                : className
+            }
           />
         ))}
       </fieldset>

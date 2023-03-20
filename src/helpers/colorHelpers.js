@@ -47,5 +47,21 @@ function getNtc(hex) {
   const colorName = GetColorName(hex);
   return colorName;
 }
-
-export { percentage, roundRgb, roundHsl, getNtc, getString, hexToRGB };
+function ntcHex(hex) {
+  const colorName = GetColorName(hex);
+  return colorName[0];
+}
+function ntcName(hex) {
+  const colorName = GetColorName(hex);
+  return colorName[1];
+}
+export {
+  percentage,
+  roundRgb,
+  roundHsl,
+  getNtc,
+  getString,
+  hexToRGB,
+  ntcHex,
+  ntcName,
+};

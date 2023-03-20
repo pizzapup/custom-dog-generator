@@ -5,7 +5,7 @@ import { ColorGroup } from "../components/Input/ColorGroup";
 import Body from "../assets/custom-dog/Body";
 import Eyes from "../assets/custom-dog/Eyes";
 import Snout from "../assets/custom-dog/Snout";
-import { getNtc, hexToRGB } from "../helpers/colorHelpers";
+import { getNtc, hexToRGB, ntcHex, ntcName } from "../helpers/colorHelpers";
 import { colorData } from "./data";
 import { writeData } from "../firebase/dbHelpers";
 const uids = "default-user";
@@ -69,19 +69,20 @@ export default function CreateDog() {
     },
   };
   const RadioStep = ({ currStep = step }) => (
-    <>
+    <div className="radio-step-container">
       <RadioGroup
         values={steps[currStep].values}
         name={steps[currStep].name}
         currVal={values[steps[currStep].name]}
         onChange={handleInputChange}
+        className="test"
         legend={
           <div className="legend">
             {steps[currStep].name} Type: {values[steps[currStep].name]}
           </div>
         }
       />
-    </>
+    </div>
   );
 
   const stepper = {
@@ -149,7 +150,7 @@ export default function CreateDog() {
           <div className="product-text--subheading">
             Customize your own pizzapup dog illustration.
           </div>
-          <Paragraph {...values} />
+          <Paragraph {...values} step={step} />
           <form onSubmit={handleSubmit} className="create-dog-form">
             <Preview values={values} className="preview-mobile" />
             <Input
@@ -202,29 +203,53 @@ export const Preview = ({ values, className }) => (
     </div>
   </div>
 );
-export const Paragraph = (values) => {
+const AnswerColor = (props) => {
+  return (
+    <span
+      className="paragraph-answers answer-color"
+      style={{
+        textDecorationColor: props.color,
+      }}
+    >
+      {` ${props.hex ? ntcName(props.color) : props.color} `}
+    </span>
+  );
+};
+const ColorCombo = ({ color, text }) => (
+  <>
+    My {text} color is <AnswerColor color={color} /> or
+    <AnswerColor hex color={color} />.
+  </>
+);
+const Answer = (props) =>
+  props.color ? (
+    <AnswerColor {...props} />
+  ) : (
+    <span className="paragraph-answers">{props.text}</span>
+  );
+
+export const Paragraph = (values, step) => {
+  const { bodyColor, eyeColor } = values;
+  const BODY = <Answer text={values.body} />;
+  const NOSE = <Answer text={values.nose} />;
+  const EYES = <Answer text={values.eyes} />;
+  const NAME = <Answer text={values.name} />;
   return (
     <>
       <div className="product-text--description">
-        "Hello! My name is <b>{values.name}</b>. I am mostly the color{" "}
-        <span
-          style={{
-            textDecoration: `${values.bodyColor} underline`,
-            fontWeight: "bold",
-          }}
-        >
-          {values.bodyColor}
-        </span>
-        . I have a <b>{values.nose}</b> nose. My eyes are the color{" "}
-        <span
-          style={{
-            textDecoration: `${values.eyeColor} underline`,
-            fontWeight: "bold",
-          }}
-        >
-          {values.eyeColor}
-        </span>{" "}
-        and <b>{values.eyes}</b>. I have a <b>{values.body}</b> body."
+        <ul>
+          <li>Hello!</li>
+          <li>My name is {NAME}.</li>
+          <li>
+            I have a {BODY} body, {EYES} eyes, and a {NOSE} nose.
+          </li>
+          <li>
+            <ColorCombo text="coat" color={bodyColor} />
+          </li>
+          <li>
+            <ColorCombo text={`eye`} color={eyeColor} />
+          </li>
+        </ul>
       </div>
     </>
   );

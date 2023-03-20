@@ -1,6 +1,7 @@
 import Input from "./Input";
 import { useState } from "react";
 import { ColorPaletteIcon } from "../../assets/icons/ColorPaletteIcon";
+import { ntcName } from "../../helpers/colorHelpers";
 
 export const ColorGroup = ({
   values,
@@ -9,6 +10,7 @@ export const ColorGroup = ({
   currVal,
   onChange,
 }) => {
+  const NTC = ntcName(currVal);
   const [customColor, setcustomColor] = useState("pink");
   const handleCustomColor = (e) => {
     setcustomColor(e.target.value);
@@ -16,9 +18,30 @@ export const ColorGroup = ({
   };
 
   return (
-    <>
-      <fieldset className="colorgroup">
-        <legend>{legend ? legend : name}</legend>
+    <div className="radio-step-container">
+      <fieldset className="colorgroup ">
+        <legend>
+          {legend ? legend : name}{" "}
+          <div
+            style={{
+              margin: "10px 0",
+              fontSize: "smaller",
+              // color: "",
+            }}
+          >
+            Closest name for selected color:{" "}
+            <span
+              style={{
+                // textDecorationColor: currVal,
+                textDecoration: `underline ${currVal} 2px`,
+                outline: `2px dotted ${currVal}`,
+                outlineOffset: 2,
+              }}
+            >
+              {NTC}
+            </span>
+          </div>
+        </legend>
         {values.map((field, index) => (
           <Input
             name={name}
@@ -63,6 +86,6 @@ export const ColorGroup = ({
           className={`${customColor === currVal ? "colorgroup--selected" : ""}`}
         />
       </fieldset>
-    </>
+    </div>
   );
 };
