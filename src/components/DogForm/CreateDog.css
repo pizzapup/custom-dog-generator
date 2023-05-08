@@ -11,31 +11,6 @@ h3 {
   padding: 0;
 }
 
-.product-img-wrapper {
-  height: 80vh;
-  position: relative;
-  margin: 10px;
-}
-.product-img-wrapper img,
-.product-img-wrapper svg {
-  position: absolute;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-.product-text-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-.product-text--heading {
-  font-size: x-large;
-}
-.product-text--subheading {
-  font-size: large;
-  color: var(--colors-black-hover);
-}
 .form-nav ul {
   display: flex;
   gap: 3px;
@@ -127,9 +102,7 @@ h3 {
 .previous-btn {
   grid-column: 1/1;
 }
-.preview-mobile {
-  display: none;
-}
+
 input[type='text'] {
   width: 100%;
 }
@@ -137,18 +110,7 @@ input[type='text'] {
   border: 1px solid black;
   padding: 1rem;
 }
-.product-text--description {
-  width: 100%;
-}
-.product-text--description ul {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: large;
-  border-top: 1px solid var(--colors-pink);
-  border-bottom: 1px solid var(--colors-pink);
-}
+
 .paragraph-answers {
   font-weight: 600;
   text-transform: capitalize;
@@ -158,12 +120,122 @@ input[type='text'] {
   text-underline-offset: 2;
   text-transform: capitalize;
 }
+.preview-mobile {
+  display: none;
+}
+.preview-img-wrapper {
+  position: relative;
+  background-color: aliceblue;
+  aspect-ratio: 1/1;
+}
+.preview-img-wrapper img,
+.preview-img-wrapper svg {
+  position: absolute;
+}
+.gallery-cards {
+  /* background-color: palegoldenrod; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px;
+  padding: 15px;
+}
+.dog-card {
+  min-width: 200px;
+  max-width: 500px;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  gap: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 255, 0.1);
+}
+
+.dog-card-media {
+  position: relative;
+}
+.dog-card-text {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 100px;
+  text-align: center;
+}
+.dog-card-link {
+  flex: 0;
+}
+.dog-card-link-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dog-card:hover .dog-card-link-text {
+  color: white;
+}
+.dog-card:hover .dog-card-link-text .dog-name {
+  text-decoration: underline var(--colors-blue) 2px;
+}
+.dog-name {
+  text-transform: capitalize;
+}
+.dog-card:hover .dog-card-text {
+  color: var(--colors-blue);
+}
+
+.dog-card-btn-open {
+  width: 100%;
+}
+
+.dog-card:hover .dog-card-media::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(000, 000, 000, 0.7);
+}
+.dog-card-link {
+  color: transparent;
+  line-height: 0;
+}
+.dog-card-link::before {
+  content: '';
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.dog-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dog-details > * {
+  flex: 1;
+  margin: 5px;
+  /* min-width: 0px; */
+}
+
 @media only screen and (max-width: 800px) {
-  .product {
+  .dog-details {
     display: block;
+    margin: 15px;
   }
-  .product-img-wrapper {
-    max-height: 40vh;
+  .preview-img-wrapper {
+    display: block;
   }
   .preview-mobile {
     display: block;

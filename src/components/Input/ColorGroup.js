@@ -1,38 +1,38 @@
-import Input from "./Input";
-import { useState } from "react";
-import { ColorPaletteIcon } from "../../assets/icons/ColorPaletteIcon";
-import { ntcName } from "../../helpers/colorHelpers";
+import Input from './Input'
+import { useState } from 'react'
+import { ColorPaletteIcon } from '../../assets/icons/ColorPaletteIcon'
+import { ntcName } from '../../helpers/colorHelpers'
 
 export const ColorGroup = ({
   values,
-  name = "missing name",
+  name = 'missing name',
   legend,
   currVal,
   onChange,
 }) => {
-  const NTC = ntcName(currVal);
-  const [customColor, setcustomColor] = useState("pink");
-  const handleCustomColor = (e) => {
-    setcustomColor(e.target.value);
-    onChange(e);
-  };
+  const NTC = ntcName(currVal)
+  const [customColor, setcustomColor] = useState('#FFC0CB')
 
+  const handleCustomColor = (e) => {
+    setcustomColor(e.target.value)
+    console.log(currVal)
+    onChange(e)
+  }
+  console.log(currVal)
   return (
     <div className="radio-step-container">
       <fieldset className="colorgroup ">
         <legend>
-          {legend ? legend : name}{" "}
+          {legend ? legend : name}{' '}
           <div
             style={{
-              margin: "10px 0",
-              fontSize: "smaller",
-              // color: "",
+              margin: '10px 0',
+              fontSize: 'smaller',
             }}
           >
-            Closest name for selected color:{" "}
+            Closest name for selected color:{' '}
             <span
               style={{
-                // textDecorationColor: currVal,
                 textDecoration: `underline ${currVal} 2px`,
                 outline: `2px dotted ${currVal}`,
                 outlineOffset: 2,
@@ -51,7 +51,7 @@ export const ColorGroup = ({
             label={
               <>
                 <div
-                  style={{ backgroundColor: field.code }}
+                  style={{ backgroundColor: `${field.code}` }}
                   className="colorgroup-color"
                 ></div>
                 <div className="colorgroup-label-text">
@@ -63,7 +63,7 @@ export const ColorGroup = ({
             }
             content={field}
             onChange={onChange}
-            className={field.code === currVal ? "colorgroup--selected" : ""}
+            className={field.code === currVal ? 'colorgroup--selected' : ''}
           />
         ))}
         <Input
@@ -72,7 +72,7 @@ export const ColorGroup = ({
             <>
               <div className="colorgroup-colorpicker">
                 <ColorPaletteIcon
-                  fill={customColor === currVal ? currVal : "#ffffff"}
+                  fill={customColor === currVal ? `${currVal}` : '#ffffff'}
                 />
               </div>
               <div className="colorgroup-label-text">
@@ -83,9 +83,9 @@ export const ColorGroup = ({
           }
           type="color"
           onChange={handleCustomColor}
-          className={`${customColor === currVal ? "colorgroup--selected" : ""}`}
+          className={`${customColor === currVal ? 'colorgroup--selected' : ''}`}
         />
       </fieldset>
     </div>
-  );
-};
+  )
+}
