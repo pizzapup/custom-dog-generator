@@ -80,32 +80,29 @@ export const AccessoryList = [
 ];
 
 export default function Accessory({ accessory }) {
-  const image = AllAccessories[accessory];
-  console.log(image);
+  const currAccessory = AllAccessories[accessory];
+  console.log(currAccessory);
   return (
-    <>
-      {image.outline !== "" ? (
+    <div>
+      {accessory && (
         <>
           <img
-            src={image.image}
+            src={currAccessory.image}
             alt={accessory}
             className="preview-img-accessory"
           />
-          <img
-            src={image.outline}
-            alt={`outline for ${accessory}`}
-            className="preview-img-accessory"
-          />
-        </>
-      ) : (
-        <>
-          <img
-            src={image.image}
-            alt={accessory}
-            className="preview-img-accessory"
-          />
+
+          {currAccessory.outline && currAccessory.outline !== "" ? (
+            <img
+              src={currAccessory.outline}
+              alt={`outline for ${accessory}`}
+              className="preview-img-accessory"
+            />
+          ) : (
+            ""
+          )}
         </>
       )}
-    </>
+    </div>
   );
 }

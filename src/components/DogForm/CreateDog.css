@@ -194,7 +194,29 @@ input[type='text'] {
 .dog-name {
   text-transform: capitalize;
 }
-
+.custom-select {
+  position: relative;
+}
+.custom-select select {
+  background-color: transparent;
+  border: transparent;
+  color: transparent;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.select-selected {
+  background-color: DodgerBlue;
+}
+.delete-btn {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+}
 .dog-card-btn-open {
   width: 100%;
 }

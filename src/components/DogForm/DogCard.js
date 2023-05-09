@@ -8,8 +8,6 @@ import { AccessoryList } from "../../assets/custom-dog/Accessories /Accessories"
 
 export default function DogCard({ data }) {
   const postKey = data.id;
-  const [clicked, setClicked] = useState(false);
-  const [accessory, setAccessory] = useState("");
   function archiveMove() {
     console.log(data);
     const updates = {};
@@ -27,11 +25,9 @@ export default function DogCard({ data }) {
     archiveRemove();
   }
   const handleChange = (e) => {
-    setAccessory(e.target.value);
     console.log("TEST", e.target.value);
-
     const updates = {};
-    updates["posts/" + data.id] = { ...data, accessory: accessory };
+    updates["posts/" + data.id] = { ...data, accessory: e.target.value };
     return update(ref(db), updates);
   };
   const dogName = <span className="dog-name">{data.name}</span>;
@@ -39,14 +35,10 @@ export default function DogCard({ data }) {
     <>
       <li key={data.id} className="dog-card">
         <div className="dog-card-media">
-          <Preview
-            accessory={accessory}
-            values={data}
-            styles={{ borderRadius: "5px" }}
-          >
+          <Preview values={data} styles={{ borderRadius: "5px" }}>
             <div className="dog-card-media-img"></div>
           </Preview>
-
+          <button className="delete-btn">x</button>
           <Link to={`/doggallery/${postKey}`} className="dog-card-link">
             <div className="dog-card-link-text">
               <div>
@@ -62,52 +54,37 @@ export default function DogCard({ data }) {
           </Level>
           <div className="dog-card-text-btns">
             <button onClick={archivePost}>Send home</button>
-            <button onClick={() => setClicked(!clicked)}>
-              Add accessories
-            </button>
-          </div>
-        </div>
-        <div
-          className={`dog-card-text-accessories ${
-            clicked && "dog-card-text-accessories-open"
-          }`}
-        >
-          <fieldset>
-            <legend>Accessories</legend>
+            <div className="btn">
+              <Link to={`/doggallery/${postKey}`}>
+                <div>Details </div>
+              </Link>
+            </div>
             <select
-              className="dog-card-text-accessories-list"
               onChange={handleChange}
               name="accessory"
+              value={data.accessory}
+              className="btn custom-select"
             >
-              <option disabled selected value>
-                --select--
+              <option disabled selected>
+                Add Accessory
               </option>
               {AccessoryList.map((item, i) => {
                 return (
                   <option
                     value={item.name}
                     key={`${item}-${i}`}
-                    onChange={handleChange}
+                    name="accessory"
                   >
                     {item.name}
                   </option>
                 );
               })}
             </select>
-          </fieldset>
+          </div>
         </div>
       </li>
     </>
   );
 }
 {
-  /* <div>
-          <Link to={`/doggallery/${postKey}`} className="dog-card-link">
-            <div className="dog-card-link-text">
-              <div>
-                Learn more about <p>{dogName}</p>
-              </div>
-            </div>
-          </Link>
-        </div>  */
 }

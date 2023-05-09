@@ -43,7 +43,7 @@ export default function DogDetail() {
     updates["posts/" + id] = data;
     return update(ref(db), updates);
   }
-
+  console.log(data);
   return (
     <>
       <div id={id} className="dog-details">
