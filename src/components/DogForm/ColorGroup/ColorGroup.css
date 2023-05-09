@@ -1,0 +1,48 @@
+.cg-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-around;
+}
+.cg-swatch {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  border: var(--border-outline-default);
+}
+.input--colorgroup {
+  flex: 1 0 33.3%;
+  min-width: 74px;
+  max-width: 6em;
+}
+.input--colorgroup input {
+  position: absolute;
+  opacity: 0;
+}
+.input--colorgroup:hover .cg-swatch {
+  border: var(--bo-color-solid);
+  background-color: white;
+}
+.input--colorgroup--selected .cg-swatch {
+  border: var(--bo-color-solid);
+  outline: var(--bo-color-solid);
+}
+
+.input--colorgroup:focus-visible .cg-swatch,
+.input--colorgroup:focus-within .cg-swatch {
+  border-color: var(--bo-color-solid);
+  outline: var(--bo-color-dashed);
+  outline-offset: 1px;
+}
+
+/* COLOR PICKER */
+.colorpicker {
+  overflow: hidden;
+  background: black;
+}
+.colorpicker svg {
+  background-color: black;
+}
+.colorpicker:hover svg {
+  background-color: var(--colors-black-hover);
+  transition: background 200ms ease;
+}

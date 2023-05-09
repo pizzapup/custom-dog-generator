@@ -1,6 +1,5 @@
 input,
-textarea,
-.radiogroup .input--radio {
+textarea {
   min-height: 45px;
   min-width: 45px;
   transition: all 200ms ease-in-out;
@@ -13,150 +12,12 @@ textarea,
 }
 input:focus,
 input:focus-visible,
-input:focus-within,
-.radiogroup .input--radio:focus,
-.radiogroup .input--radio:focus-within,
-.radiogroup .input--radio:focus-visible,
-.colorgroup label:focus .colorgroup-color,
-.colorgroup label:focus-visible .colorgroup-color,
-.colorgroup label:focus-within .colorgroup-color,
-label:focus .colorgroup-colorpicker,
-label:focus-visible .colorgroup-colorpicker,
-label:focus-within .colorgroup-colorpicker {
+input:focus-within {
   border-color: var(--bo-color-solid);
   outline: var(--bo-color-dashed);
   outline-offset: 1px;
 }
-input:hover,
-.radiogroup .input--radio:hover,
-.colorgroup label:hover .colorgroup-color,
-label:hover .colorgroup-colorpicker {
+input:hover {
   border: var(--bo-color-solid);
   background-color: white;
-}
-.radiogroup {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-}
-.radiogroup .input--radio {
-  padding: 10px 15px;
-  border-radius: 40px;
-  position: relative;
-  height: 60px;
-}
-.radiogroup .radiogroup--selected {
-  background: black;
-  color: white;
-}
-.radiogroup .radiogroup--selected:hover {
-  background-color: hsl(0, 0%, 20%);
-  color: white;
-}
-.radiogroup .input--radio input {
-  opacity: 0;
-}
-.radiogroup .input--radio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.radiogroup .input--radio span {
-  position: absolute;
-}
-html {
-  --colorgroupColorsGrid-min-width: 50px;
-  --colorgroupColorsGrid-max-width: 5em;
-  --colorgroupColorSize: 5em;
-}
-.colorgroup {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(
-      max(var(--colorgroupColorsGrid-min-width), var(--colorgroupColorSize)),
-      1fr
-    )
-  );
-  gap: 10px;
-  align-items: center;
-  justify-items: center;
-}
-.colorgroup-color {
-  border-radius: 50%;
-  height: var(--colorgroupColorSize);
-  width: var(--colorgroupColorSize);
-  aspect-ratio: 1/1;
-  flex: 1;
-  border: var(--border-outline-default);
-}
-.colorgroup label:hover .colorgroup-color {
-  border: var(--bo-color-solid);
-}
-.colorgroup label {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.colorgroup label input {
-  position: absolute;
-  opacity: 0;
-}
-.colorgroup-colorpicker svg {
-  background-color: black;
-}
-.colorgroup-colorpicker:hover svg {
-  background-color: var(--colors-black-hover);
-  transition: background 200ms ease;
-}
-
-.colorgroup-colorpicker {
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  flex: 1;
-  height: 5em;
-  width: 5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 50%;
-  height: var(--colorgroupColorSize);
-  width: var(--colorgroupColorSize);
-  aspect-ratio: 1/1;
-  flex: 1;
-  border: var(--border-outline-default);
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 154, 0, 1) 10%,
-    rgba(208, 222, 33, 1) 20%,
-    rgba(79, 220, 74, 1) 30%,
-    rgba(63, 218, 216, 1) 40%,
-    rgba(47, 201, 226, 1) 50%,
-    rgba(28, 127, 238, 1) 60%,
-    rgba(95, 21, 242, 1) 70%,
-    rgba(186, 12, 248, 1) 80%,
-    rgba(251, 7, 217, 1) 90%,
-    rgba(255, 0, 0, 1) 100%
-  ); */
-  background: black;
-}
-
-.colorgroup--selected .colorgroup-color,
-.colorgroup--selected .colorgroup-colorpicker {
-  border: var(--bo-color-solid);
-  outline: var(--bo-color-solid);
-}
-@media only screen and (max-width: 800px) {
-  .colorgroup {
-    --colorgroupColorSize: 5em;
-  }
-}
-@media only screen and (max-width: 300px) {
-  .colorgroup {
-    --colorgroupColorSize: 4em;
-  }
 }

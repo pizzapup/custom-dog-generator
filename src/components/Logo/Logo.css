@@ -1,10 +1,13 @@
+:root {
+  --logo-size: xx-large;
+}
 .logo * {
-  font-family: "naiche", var(--font-family-primary);
-  font-variation-settings: "slnt" 25, "wght" 1026;
+  font-family: 'naiche', var(--font-family-primary);
+  font-variation-settings: 'slnt' 25, 'wght' 1026;
   text-decoration: none;
   text-align: center;
   text-transform: lowercase;
-  font-size: 35px;
+  font-size: var(--logo-size);
   letter-spacing: 2px;
   /* text-shadow: var(--colors-black) -1px 0.5px 1px; */
 }
@@ -28,5 +31,8 @@
 @media only screen and (min-width: 736px) {
   .logo span:hover::before {
     transform: perspective(1000px) rotate(-67deg);
+  }
+  :root {
+    --logo-size: 38px;
   }
 }

@@ -1,4 +1,4 @@
-import './Input.css'
+import "./Input.css";
 
 export default function Input({
   type,
@@ -22,37 +22,5 @@ export default function Input({
         />
       </label>
     </>
-  )
-}
-
-export const RadioGroup = ({
-  values,
-  name = 'missing name',
-  legend,
-  currVal,
-  onChange,
-  className,
-}) => {
-  return (
-    <>
-      <fieldset className="radiogroup">
-        <legend>{legend ? legend : name}</legend>
-        {values.map((field, index) => (
-          <Input
-            name={name}
-            type="radio"
-            key={index}
-            value={field.value}
-            label={field.value}
-            onChange={onChange}
-            className={
-              field.value === currVal
-                ? `radiogroup--selected ${className}`
-                : className
-            }
-          />
-        ))}
-      </fieldset>
-    </>
-  )
+  );
 }

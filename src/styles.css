@@ -46,7 +46,8 @@
 
 /* fix content jump when scrollbar appears */
 html {
-  padding-right: calc(17px - (100vw - 100%));
+  /* padding-right: calc(17px - (100vw - 100%)); */
+  padding: 0 10px;
   font-family: var(--font-family-primary);
 }
 
@@ -104,4 +105,7 @@ label {
 }
 .proper {
   text-transform: capitalize;
+}
+.upper {
+  text-transform: uppercase;
 }
