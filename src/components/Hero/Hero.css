@@ -32,22 +32,16 @@
   align-items: center;
   justify-content: center;
   padding: 30px 25px;
-}
-.hero-btn:hover {
-  background-color: var(--colors-lightblue);
-}
-.hero-btn a {
   text-decoration-color: transparent;
   color: rgb(254, 208, 0);
   font-weight: bolder;
 }
-.hero-btn:hover a {
+.hero-btn:hover {
+  background-color: var(--colors-lightblue);
   color: var(--colors-green-d);
   text-decoration-style: wavy;
   text-decoration-color: hotpink;
   text-underline-offset: 3px;
-}
-.hero-btn:hover a:hover {
   color: hotpink;
   text-decoration-color: var(--colors-green-d);
 }

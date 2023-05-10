@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./Hero.css";
 
 export default function Hero() {
@@ -8,9 +8,9 @@ export default function Hero() {
         <div className="hero-section">
           <h1>Custom Dog Generator</h1>
           <h2> by Pizzapup Design & Illustration</h2>
-          <div className="hero-btn">
-            <Link to="/createdog">Start Customizing</Link>
-          </div>
+          <Link className="hero-btn" to="/createdog">
+            Start Customizing
+          </Link>
         </div>
       </div>
     </>
