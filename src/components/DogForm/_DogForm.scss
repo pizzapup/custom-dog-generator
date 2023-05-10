@@ -1,0 +1,48 @@
+.dog-form-component {
+  box-sizing: border-box;
+  border: 2px solid palegoldenrod;
+  .dog-form-preview {
+    border: 2px solid palegreen;
+  }
+
+  .fieldset-color-swatches {
+    // @include flex($w: wrap, $g: 1rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: stretch;
+    justify-content: stretch;
+    label {
+      flex: 1 0 0;
+      position: relative;
+      text-transform: capitalize;
+      @include flex($d: column, $a: center);
+      .swatch {
+        background-color: whitesmoke;
+        background: var(--swatch-color);
+        // min-height: 45px;
+        min-width: 45px;
+        height: 100%;
+        width: 100%;
+        min-height: 45px;
+        max-height: 60px;
+        // aspect-ratio: 1/1;
+      }
+      .swatch-name {
+        @include mq-smaller {
+          font-size: smaller;
+        }
+        span {
+          display: block;
+        }
+      }
+      .hex {
+        text-transform: uppercase;
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+        @include positioning($t: 0, $b: 0, $l: 0, $r: 0);
+      }
+    }
+  }
+}

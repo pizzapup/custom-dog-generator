@@ -1,5 +1,5 @@
 import "./custom-dog.css";
-const Chonky = ({ main, outline }) => {
+const Chonky = ({main, outline}) => {
   return (
     <svg viewBox="0 0 3310 3310">
       <path
@@ -18,7 +18,7 @@ const Chonky = ({ main, outline }) => {
     </svg>
   );
 };
-const Medium = ({ main, outline }) => {
+const Medium = ({main, outline}) => {
   return (
     <svg width="100%" viewBox="0 0 3300 3300">
       <path
@@ -29,7 +29,7 @@ const Medium = ({ main, outline }) => {
     </svg>
   );
 };
-const Regular = ({ main, outline }) => {
+const Regular = ({main, outline}) => {
   return (
     <svg viewBox="0 0 3300 3300">
       <path
@@ -491,7 +491,7 @@ z"
     </svg>
   );
 };
-const list = { chonky: Chonky, medium: Medium, regular: Regular };
+const list = {chonky: Chonky, medium: Medium, regular: Regular};
 
 export default function Body({
   body = "chonky",
@@ -500,5 +500,5 @@ export default function Body({
   bodyColor = main,
 }) {
   const Component = list[body];
-  return <Component main={bodyColor} outline={outline} />;
+  return <Component main={bodyColor} outline={"black"} />;
 }

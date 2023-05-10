@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
-import Preview from "./Preview";
 import {Level, H} from "react-accessible-headings";
 import {ref, update} from "firebase/database";
 import {database as db} from "../../firebase/firebaseConfig";
 import {useState} from "react";
-import {AccessoryList} from "../../assets/custom-dog/Accessories /Accessories";
+import {AccessoryList} from "../../assets/custom-dog/Accessory/Accessory";
+import DogPreview from "./DogPreview/DogPreview";
 
 export default function DogCard({data}) {
   const postKey = data.id;
@@ -35,9 +35,9 @@ export default function DogCard({data}) {
     <>
       <li key={data.id} className="dog-card">
         <div className="dog-card-media">
-          <Preview values={data} styles={{borderRadius: "5px"}}>
+          <DogPreview values={data} styles={{borderRadius: "5px"}}>
             <div className="dog-card-media-img"></div>
-          </Preview>
+          </DogPreview>
           <Link to={`/doggallery/${postKey}`} className="dog-card-link">
             <div className="dog-card-link-text">
               <div>
@@ -63,9 +63,7 @@ export default function DogCard({data}) {
               value={data.accessory}
               className="btn custom-select"
             >
-              <option disabled selected>
-                Add Accessory
-              </option>
+              <option disabled>Add Accessory</option>
               {AccessoryList.map((item, i) => {
                 return (
                   <option

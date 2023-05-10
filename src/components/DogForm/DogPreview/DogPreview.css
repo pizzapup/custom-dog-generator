@@ -1,0 +1,10 @@
+.dog-preview {
+  max-width: 400px;
+  position: relative;
+  background-color: aliceblue;
+  aspect-ratio: 1/1;
+}
+.dog-preview img,
+.dog-preview svg {
+  position: absolute;
+}

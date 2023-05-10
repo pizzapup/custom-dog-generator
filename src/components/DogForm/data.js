@@ -1,4 +1,4 @@
-export const initialValues = {
+export const defaultValues = {
   name: "fido",
   eyes: "squinty",
   body: "medium",
@@ -8,46 +8,72 @@ export const initialValues = {
   bodyColorName: "Antique Brass",
   eyeColor: "#2b9145",
   eyeColorName: "Sea Green",
+  outlineColor: "dark",
   accessory: "none",
 };
-
+export const fields = {
+  body: {
+    types: ["regular", "medium", "chonky"],
+    colors: [
+      {name: "black", hex: "#232323"},
+      {name: "blue", hex: "#41414b"},
+      {name: "chocolate", hex: "#462c1d"},
+      {name: "champagne", hex: "#7b6d64"},
+      {name: "red", hex: "#794a2e"},
+      {name: "fawn", hex: "#e6c693"},
+      {name: "white", hex: "#ede7e7"},
+      {name: "tan", hex: "#C7875B"},
+    ],
+  },
+  eyes: {
+    types: ["squinty", "closed", "round"],
+    colors: [
+      {name: "blue", hex: "#8ac9e3"},
+      {name: "green", hex: "#2b9145"},
+      {name: "amber", hex: "#d5973e"},
+      {name: "brown", hex: "#542d08"},
+    ],
+  },
+  nose: {types: ["long", "button", "heart"]},
+  mouth: {types: ["smile", "straight", "tongue"]},
+};
 export const stepFields = {
   1: {
     name: "body",
     values: [
-      { value: "regular", type: "radio" },
-      { value: "medium", type: "radio" },
-      { value: "chonky", type: "radio" },
+      {value: "regular", type: "radio"},
+      {value: "medium", type: "radio"},
+      {value: "chonky", type: "radio"},
     ],
   },
   2: {
     name: "eyes",
     values: [
-      { value: "squinty", type: "radio" },
-      { value: "closed", type: "radio" },
-      { value: "round", type: "radio" },
+      {value: "squinty", type: "radio"},
+      {value: "closed", type: "radio"},
+      {value: "round", type: "radio"},
     ],
   },
   3: {
     name: "nose",
     values: [
-      { value: "long", type: "radio" },
-      { value: "button", type: "radio" },
-      { value: "heart", type: "radio" },
+      {value: "long", type: "radio"},
+      {value: "button", type: "radio"},
+      {value: "heart", type: "radio"},
     ],
   },
   4: {
     name: "mouth",
     values: [
-      { value: "smile", type: "radio" },
-      { value: "straight", type: "radio" },
-      { value: "tongue", type: "radio" },
+      {value: "smile", type: "radio"},
+      {value: "straight", type: "radio"},
+      {value: "tongue", type: "radio"},
     ],
   },
 };
 export const steps = {
   body: {
-    regular: { value: "regular", description: "standard, average build" },
+    regular: {value: "regular", description: "standard, average build"},
     medium: {
       value: "medium",
       description: "maybe a lil on the heavier side but perfectly healthy",
@@ -99,38 +125,4 @@ export const steps = {
       description: "dingus",
     },
   },
-};
-export const colorVariants = {
-  body: {
-    black: { value: "black", code: "#232323" },
-    blue: { value: "blue", code: "#41414b" },
-    chocolate: { value: "chocolate", code: "#462c1d" },
-    champagne: { value: "champagne", code: "#7b6d64" },
-    red: { value: "red", code: "#794a2e" },
-    fawn: { value: "fawn", code: "#e6c693" },
-    white: { value: "white", code: "#ede7e7" },
-  },
-  eyes: {
-    blue: { value: "blue", code: "#8ac9e3" },
-    green: { value: "green", code: "#2b9145" },
-    amber: { value: "amber", code: "#d5973e" },
-    brown: { value: "brown", code: "#542d08" },
-  },
-};
-export const colorData = {
-  body: [
-    { value: "black", code: "#232323", text: "#ffffff" },
-    { value: "blue", code: "#41414b", text: "#ffffff" },
-    { value: "chocolate", code: "#462c1d", text: "#ffffff" },
-    { value: "champagne", code: "#7b6d64", text: "#ffffff" },
-    { value: "red", code: "#794a2e", text: "#ffffff" },
-    { value: "fawn", code: "#e6c693", text: "#000000" },
-    { value: "white", code: "#ede7e7", text: "#000000" },
-  ],
-  eyes: [
-    { value: "blue", code: "#4aaad3", text: "#ffffff" },
-    { value: "green", code: "#2b9145", text: "#ffffff" },
-    { value: "amber", code: "#d5973e", text: "#ffffff" },
-    { value: "brown", code: "#542d08", text: "#ffffff" },
-  ],
 };

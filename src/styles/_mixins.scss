@@ -1,0 +1,39 @@
+@mixin flex(
+  $a: stretch,
+  $j: flex-start,
+  $d: row,
+  $w: nowrap,
+  $g: 0,
+  $c: "default"
+) {
+  display: flex;
+  align-items: $a;
+  justify-content: $j;
+  flex-direction: $d;
+  flex-wrap: $w;
+  gap: $g;
+  @if $c != "default" && {
+    align-items: $c;
+    justify-content: $c;
+  }
+}
+@mixin positioning($t: auto, $r: auto, $b: auto, $l: auto) {
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+@mixin size($both: "default", $h: auto, $w: auto) {
+  height: $h;
+  width: $w;
+  @if $both != "default" {
+    height: $both;
+    width: $both;
+  }
+}
+
+@mixin mq-smaller($size: 800px) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
