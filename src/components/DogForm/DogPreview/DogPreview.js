@@ -1,5 +1,4 @@
 import PreviewImage from "../../../assets/custom-dog";
-import "./DogPreview.css";
 
 export default function DogPreview({values, children}) {
   return (

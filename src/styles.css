@@ -21,7 +21,6 @@
   --colors-offwhite-d: hsl(50, 88%, 80%);
   --colors-offwhite-l: hsl(50, 88%, 98%);
   --colors-lightgrey: #f0f0f0;
-
   --radii-sm: 2px;
   --radii: 3px;
   --radii-md: 5px;
@@ -59,33 +58,12 @@ html {
   width: 1px !important;
   white-space: nowrap !important;
 }
-/* button,
-.btn {
-  min-height: 45px;
-  min-width: 45px;
-  padding: 15px 20px;
-  border: var(--border-outline-default);
-  outline: var(--border-outline-default);
-  background: hsl(0, 0%, 0%);
-  transition: all 200ms ease-in-out;
-  color: white;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-}
 
-button:hover,
-.btn:hover {
-  background: hsl(0, 0%, 20%);
-  border: 2px solid var(--colors-blue);
-  outline-offset: 1px;
-  outline: 2px dashed var(--colors-blue);
-}
-button:focus,
-.btn:focus {
-  border: 2px solid var(--colors-blue);
+/* ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 } */
-
 .proper {
   text-transform: capitalize;
 }

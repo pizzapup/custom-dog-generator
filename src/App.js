@@ -3,7 +3,7 @@ import "./styles/styles.scss";
 import {lazy, Suspense} from "react";
 import {Route, Routes} from "react-router-dom";
 import Layout from "./routes/Layout";
-import DogDetail from "./components/DogForm/DogDetail";
+import DogDetail from "./components/DogForm/DogGallery/DogDetail";
 const Home = lazy(() => import("./routes/Home"));
 const CreateDog = lazy(() => import("./routes/CreateDog"));
 const DogGallery = lazy(() => import("./routes/DogGallery"));

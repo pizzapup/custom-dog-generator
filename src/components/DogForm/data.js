@@ -10,6 +10,8 @@ export const defaultValues = {
   eyeColorName: "Sea Green",
   outlineColor: "dark",
   accessory: "none",
+  favtoy: "cardboard",
+  about: "will beg for snacks",
 };
 export const fields = {
   body: {
@@ -24,6 +26,7 @@ export const fields = {
       {name: "white", hex: "#ede7e7"},
       {name: "tan", hex: "#C7875B"},
     ],
+    name: "Body",
   },
   eyes: {
     types: ["squinty", "closed", "round"],
@@ -33,9 +36,10 @@ export const fields = {
       {name: "amber", hex: "#d5973e"},
       {name: "brown", hex: "#542d08"},
     ],
+    name: "Eyes",
   },
-  nose: {types: ["long", "button", "heart"]},
-  mouth: {types: ["smile", "straight", "tongue"]},
+  nose: {types: ["long", "button", "heart"], name: "Nose"},
+  mouth: {types: ["smile", "straight", "tongue"], name: "Mouth"},
 };
 export const stepFields = {
   1: {

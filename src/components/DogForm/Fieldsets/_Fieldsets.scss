@@ -1,0 +1,84 @@
+.form-step-content {
+  fieldset {
+    // border: 1px solid rgba(75, 111, 254, 0.05);
+    border-color: transparent;
+    // background-color: hsl(0, 0%, 99%);
+    // border-radius: 5px;
+  }
+  .fieldset--radio-btns {
+    @include flex($c: center, $g: 1rem);
+    input {
+      appearance: none;
+      position: absolute;
+    }
+
+    .radio-btn {
+      @extend %inputStyles;
+      @include flex($c: center);
+      background-color: $grey;
+      border-radius: 40px;
+      border-color: black;
+      padding: 10px;
+      height: 45px;
+      width: 90px;
+      position: relative;
+      &:hover {
+        background-color: $blue-hover;
+      }
+    }
+    .radio-btn--selected {
+      background-color: $black;
+      border-color: $blue;
+      color: white;
+      &:hover {
+        background-color: $black-hover;
+      }
+    }
+  }
+  .fieldset--color-swatches {
+    border-radius: 5px;
+    overflow: hidden;
+    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-content: stretch;
+    justify-content: stretch;
+
+    .swatch-btn {
+      background: var(--swatch-color);
+      width: 100%;
+      min-height: 50px;
+      position: relative;
+      &::after {
+        content: "";
+        transition: $transition;
+        position: absolute;
+        @include positioning($t: 0, $b: 0, $r: 0, $l: 0);
+        background-color: transparent;
+        border: 1px solid transparent;
+      }
+      &:hover {
+        &::after {
+          content: "";
+          transition: $transition;
+          position: absolute;
+          @include positioning($t: 0, $b: 0, $r: 0, $l: 0);
+          background-color: rgba(0, 0, 0, 0.2);
+          border-color: $blue;
+        }
+      }
+      @include mq-max(800px) {
+        min-width: 60px;
+        min-height: 60px;
+      }
+      .swatch-btn--selected {
+        outline: 2px solid $blue;
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+      }
+    }
+  }
+}

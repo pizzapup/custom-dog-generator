@@ -1,3 +1,7 @@
 @import "./variables";
 @import "./mixins";
-@import "../components/DogForm/DogForm"
+@import "./baseStyles";
+@import "../components/DogForm/DogForm";
+@import "../assets/custom-dog/custom-dog";
+@import "../components/DogForm/DogGallery/DogGallery";
+@import "../components/DogForm/Fieldsets/Fieldsets";

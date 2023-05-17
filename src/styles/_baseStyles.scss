@@ -1,0 +1,27 @@
+%inputStyles {
+  transition: $transition;
+  border: $transparent-border;
+  outline: $transparent-border;
+  min-height: $min-touch;
+  min-width: $min-touch;
+  &:hover {
+    border-color: $blue;
+  }
+  @include focus {
+    border-color: $blue;
+    outline: 2px dashed $blue;
+    outline-offset: 1px;
+  }
+}
+%btn-primary {
+  @extend %inputStyles;
+  @include min-size($both: 45px);
+  background-color: $black;
+  color: $white;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  &:hover {
+    background: $black-hover;
+  }
+}

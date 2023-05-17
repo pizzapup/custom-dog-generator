@@ -1,0 +1,107 @@
+.dog-name {
+  text-transform: capitalize;
+}
+.dog-gallery {
+  .dog-gallery--cards {
+    @include flex($w: wrap, $g: 15px);
+    margin: 15px;
+    padding: 15px;
+  }
+}
+.dog-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  position: relative;
+  @include flex($d: column, $a: stretch, $g: 5px);
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  padding: 10px;
+  .dog-card-media {
+    position: relative;
+    background-color: $black;
+    .dog-card-media--overlay-bg {
+      background-color: rgba(000, 000, 000, 0);
+      @include size($both: 100%);
+      @include positioning(all);
+    }
+    .dog-card-media--overlay-link {
+      flex: 0;
+      color: transparent;
+      line-height: 0;
+      .dog-card-media--overlay-link-text {
+        @include positioning(all);
+
+        @include flex($c: center);
+      }
+      &::after {
+        content: "";
+        background-color: transparent;
+        @include size($both: 100%);
+        @include positioning(all);
+      }
+    }
+    &:hover {
+      .dog-card-media--overlay-bg {
+        background-color: rgba(000, 000, 000, 0.7);
+      }
+      .dog-card-media--overlay-link-text {
+        color: white;
+        .dog-name {
+          text-decoration: underline var(--colors-blue) 2px;
+        }
+      }
+    }
+  }
+
+  .dog-card-bottom {
+    flex: 1;
+    height: 100px;
+    text-align: center;
+    .dog-card-bottom--btns {
+      @include flex;
+      .dog-card-bottom--btns-btn {
+        display: inline;
+        z-index: 9;
+        flex: 1;
+        @extend %btn-primary;
+        a {
+          color: white;
+          width: 100%;
+          height: 100%;
+          @include flex($c: center);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+.dog-preview {
+  position: relative;
+  background-color: aliceblue;
+  aspect-ratio: 1/1;
+  img,
+  svg {
+    position: absolute;
+  }
+  .preview-img-accessory {
+    @include size($both: 100%);
+    @include positioning(all);
+  }
+}
+.dog-details {
+  @include flex($w: wrap);
+  .dog-preview {
+    max-height: 600px;
+    min-height: 400px;
+    max-width: 600px;
+    border-radius: 8px;
+  }
+  > * {
+    margin: 8px;
+    flex: 1;
+  }
+  .dog-details-textpanel {
+    min-width: 300px;
+  }
+}
