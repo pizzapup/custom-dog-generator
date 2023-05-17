@@ -1,12 +1,9 @@
 .form-step-content {
   fieldset {
-    // border: 1px solid rgba(75, 111, 254, 0.05);
     border-color: transparent;
-    // background-color: hsl(0, 0%, 99%);
-    // border-radius: 5px;
   }
   .fieldset--radio-btns {
-    @include flex($c: center, $g: 1rem);
+    @include flex($c: center, $g: 10px, $w: wrap);
     input {
       appearance: none;
       position: absolute;
@@ -20,7 +17,7 @@
       border-color: black;
       padding: 10px;
       height: 45px;
-      width: 90px;
+      width: 80px;
       position: relative;
       &:hover {
         background-color: $blue-hover;

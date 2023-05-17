@@ -1,9 +1,12 @@
 :root {
   --logo-size: xx-large;
 }
+.logo {
+  width: 220px;
+}
 .logo * {
-  font-family: 'naiche', var(--font-family-primary);
-  font-variation-settings: 'slnt' 25, 'wght' 1026;
+  font-family: "naiche", var(--font-family-primary);
+  font-variation-settings: "slnt" 25, "wght" 1026;
   text-decoration: none;
   text-align: center;
   text-transform: lowercase;
@@ -34,5 +37,8 @@
   }
   :root {
     --logo-size: 38px;
+  }
+  .logo {
+    width: 250px;
   }
 }
