@@ -1,6 +1,7 @@
 import PreviewImage from "../../../assets/custom-dog";
+import {defaultValues} from "../data";
 
-export default function DogPreview({values, children}) {
+export default function DogPreview({values = defaultValues, children}) {
   return (
     <>
       <div className="dog-preview">

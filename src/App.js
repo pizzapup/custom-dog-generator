@@ -13,7 +13,7 @@ export const pages = [
   {to: "/home", title: "Home"},
   {to: "/createdog", title: "Create Dog"},
   {to: "/doggallery", title: "Dog Gallery"},
-  {to: "/resumepage", title: "Resume"},
+  // {to: "/resumepage", title: "Resume"},
 ];
 
 function App() {
@@ -55,14 +55,14 @@ function App() {
             }
           />
           <Route path="doggallery/:id" element={<DogDetail />} />
-          <Route
+          {/* <Route
             path="resumepage"
             element={
               <Suspense fallback={<>...</>}>
                 <ResumePage />
               </Suspense>
             }
-          />
+          /> */}
           <Route
             path="*"
             element={<p> yikes - there's nothing at this url. try again ? </p>}

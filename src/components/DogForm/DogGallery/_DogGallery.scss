@@ -104,4 +104,35 @@
   .dog-details-textpanel {
     min-width: 300px;
   }
+  .btns {
+    button {
+      @extend %btn-primary;
+      width: 150px;
+    }
+  }
+  .details-toast {
+    .prompt {
+      color: black;
+    }
+    .subprompt {
+      // color: $brown;
+      display: block;
+      font-style: italic;
+      font-size: smaller;
+    }
+    .prompt-btns {
+      @include flex;
+      margin: 0;
+      button {
+        flex: 1;
+        @extend %btn-primary;
+      }
+      .yes {
+        background-color: $red;
+      }
+      .nvm {
+        background-color: $blue;
+      }
+    }
+  }
 }

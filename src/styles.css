@@ -41,7 +41,7 @@
   box-sizing: border-box;
 }
 html {
-  padding: 0 15px;
+  margin: 0 auto;
   font-family: var(--font-family-primary);
 }
 
