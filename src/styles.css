@@ -19,7 +19,7 @@
   --colors-white-opacity: rgba(255, 255, 255, 0.6);
   --colors-white: rgb(255, 255, 255);
   --colors-offwhite-d: hsl(50, 88%, 80%);
-  --colors-offwhite-l: hsl(50, 88%, 98%);
+  --colors-offwhite-l: rgb(254, 253, 245);
   --colors-lightgrey: #f0f0f0;
   --radii-sm: 2px;
   --radii: 3px;

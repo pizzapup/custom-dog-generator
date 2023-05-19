@@ -23,10 +23,15 @@
     }
   }
 }
-
+.hero-h1 {
+  display: flex;
+  .h1-stars {
+    font-size: xx-large;
+  }
+}
 h1 {
   text-align: center;
-  white-space: nowrap;
+  // white-space: nowrap;
 }
 h2 {
   border-top: 2px solid $blue;

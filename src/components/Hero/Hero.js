@@ -6,7 +6,7 @@ import {Slideshow} from "../Slideshow/Slideshow";
 
 export default function Hero() {
   return (
-    <>
+    <div className="hero-page-wrapper">
       <div className="hero-bg">
         <DogPreview />
         <DogPreview />
@@ -16,16 +16,18 @@ export default function Hero() {
         <DogPreview />
         <DogPreview />
         <DogPreview />
-        <DogPreview />
-        <DogPreview />
-        <DogPreview />
-        <DogPreview />
-        <DogPreview />
+        <span className="dp-sm">
+          <DogPreview />
+        </span>
       </div>
       <div className="hero">
         <div className="hero-inner">
           <div className="hero-text">
-            <h1>&#10024; Custom Dog Generator &#10024;</h1>
+            <div className="hero-h1">
+              <div className="h1-stars">&#10024; </div>
+              <h1>Custom Dog Generator</h1>
+              <div className="h1-stars">&#10024; </div>
+            </div>
             <div>
               Create your own custom dog illustration using the Pizzapup Custom
               Dog Generator. <br />
@@ -51,6 +53,6 @@ export default function Hero() {
           <Slideshow />
         </div>
       </div>
-    </>
+    </div>
   );
 }
