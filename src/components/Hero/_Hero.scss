@@ -80,3 +80,53 @@ h2 {
     background-color: transparent;
   }
 }
+//
+.hero {
+  margin: 10px auto;
+  /* width: 100vw; */
+  height: 90vh;
+  background-image: url
+    "https://github.com/pizzapup/custom-dog-generator/blob/23ebd1cc17e823f65e490b970e87c3b3476a60fa/tiny-dog.JPG";
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.hero-prev {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -10;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.hero-prev .dog-preview:nth-child(1n) {
+  background-color: var(--colors-offwhite);
+}
+.hero-prev .dog-preview:nth-child(2n) {
+  background-color: var(--colors-lightblue);
+}
+
+.hero-prev .dog-preview:nth-child(4n) {
+  background-color: var(--colors-pink);
+}
+.hero-prev .dog-preview:nth-child(5n) {
+  background-color: var(--colors-orange);
+}
+.hero-prev::after {
+  content: "";
+  position: fixed;
+  background-color: var(--colors-offwhite);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+.hero-section {
+  background-color: var(--colors-white);
+  min-height: 30vh;
+}

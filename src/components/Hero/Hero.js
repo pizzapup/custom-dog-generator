@@ -2,10 +2,23 @@ import {Link} from "react-router-dom";
 import Sparkles from "../Sparkles/Sparkles";
 import DogPreview from "../DogForm/DogPreview/DogPreview";
 import {Slideshow} from "../Slideshow/Slideshow";
+// import "./Hero.css";
+
 export default function Hero() {
   return (
     <>
       <div className="hero">
+        <div className="hero-prev">
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+          <DogPreview />
+        </div>
         <div className="hero-inner">
           <h1>&#10024; Custom Dog Generator &#10024;</h1>
 
