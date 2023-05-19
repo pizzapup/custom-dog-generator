@@ -1,15 +1,12 @@
 .hero {
-  margin: auto;
-  @include flex($c: center);
   .hero-inner {
-    margin: 10px;
+    margin: 20px;
     margin-top: 55px;
-    padding: 15px;
-    height: 380px;
-    max-width: 600px;
+    padding: 20px;
     position: relative;
     background: white;
     border-radius: 50px;
+    max-height: 50vh;
     &::before {
       content: "";
       z-index: -1;
@@ -19,7 +16,6 @@
       bottom: 0;
       left: 0;
       background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-      // transform: translate3d(2px, 6px, 0) scale(0.97);
       filter: blur(24px);
       opacity: var(0.55);
       transition: opacity 0.3s;
@@ -30,12 +26,36 @@
 
 h1 {
   text-align: center;
+  white-space: nowrap;
+}
+h2 {
+  border-top: 2px solid $blue;
 }
 .sparkle-wrapper {
-  height: 150px;
+  text-align: center;
   .sparkles-btn {
     width: 150px;
-    margin: 15px auto;
+    height: 55px;
+    border-radius: 5px;
+    background-color: $green;
+    border-color: $blue;
+    @extend %inputStyles;
+    @include fillLeftToRight($blue, $blue-hover);
+    margin: auto;
+    .hero-btn {
+      color: white;
+      height: 100%;
+      @include flex($c: center);
+      width: 100%;
+      text-decoration: 1px solid underline transparent;
+      text-underline-offset: 3px;
+      transition: $transition;
+      display: flex;
+      &:hover {
+        text-decoration: 2px solid underline $pink;
+        text-underline-offset: 3px;
+      }
+    }
   }
   .sparkle {
     opacity: 0;
@@ -45,24 +65,8 @@ h1 {
       opacity: 1;
     }
   }
-  .hero-btn {
-    border: 2px solid $blue;
-    padding: 15px;
-    outline: 2px dashed transparent;
-    color: $white;
-    text-decoration: none;
-    font-size: large;
-    @include fillLeftToRight($blue, $green);
-    border-radius: 5px;
-    &:hover {
-      border: 2px solid $pink;
-    }
-  }
 }
-h2 {
-  border-top: 2px solid $blue;
-  padding-top: 10px;
-}
+
 .hero-link-inText {
   color: $blue;
   font-weight: 500;
@@ -80,53 +84,29 @@ h2 {
     background-color: transparent;
   }
 }
-//
-.hero {
-  margin: 10px auto;
-  /* width: 100vw; */
-  height: 90vh;
-  background-image: url
-    "https://github.com/pizzapup/custom-dog-generator/blob/23ebd1cc17e823f65e490b970e87c3b3476a60fa/tiny-dog.JPG";
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.hero-prev {
+
+.hero-bg {
   height: 100vh;
   width: 100vw;
   position: fixed;
   z-index: -10;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-.hero-prev .dog-preview:nth-child(1n) {
-  background-color: var(--colors-offwhite);
-}
-.hero-prev .dog-preview:nth-child(2n) {
-  background-color: var(--colors-lightblue);
-}
-
-.hero-prev .dog-preview:nth-child(4n) {
-  background-color: var(--colors-pink);
-}
-.hero-prev .dog-preview:nth-child(5n) {
-  background-color: var(--colors-orange);
-}
-.hero-prev::after {
-  content: "";
-  position: fixed;
-  background-color: var(--colors-offwhite);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.5;
-}
-.hero-section {
-  background-color: var(--colors-white);
-  min-height: 30vh;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  .dog-preview:nth-child(1n) {
+    background-color: var(--colors-offwhite);
+  }
+  .dog-preview:nth-child(2n) {
+    background-color: $lightblue;
+  }
+  .dog-preview:nth-child(4n) {
+    background-color: $pink;
+  }
+  .dog-preview:nth-child(5n) {
+    background-color: $orange;
+  }
+  @include mq-sm {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
