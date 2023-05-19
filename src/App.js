@@ -7,13 +7,11 @@ import DogDetail from "./components/DogForm/DogGallery/DogDetail";
 const Home = lazy(() => import("./routes/Home"));
 const CreateDog = lazy(() => import("./routes/CreateDog"));
 const DogGallery = lazy(() => import("./routes/DogGallery"));
-const ResumePage = lazy(() => import("./routes/ResumePage"));
 // const DogDetail = lazy(() => import("./components/DogForm/DogDetail"));
 export const pages = [
   {to: "/home", title: "Home"},
   {to: "/createdog", title: "Create Dog"},
   {to: "/doggallery", title: "Dog Gallery"},
-  // {to: "/resumepage", title: "Resume"},
 ];
 
 function App() {
@@ -55,14 +53,7 @@ function App() {
             }
           />
           <Route path="doggallery/:id" element={<DogDetail />} />
-          {/* <Route
-            path="resumepage"
-            element={
-              <Suspense fallback={<>...</>}>
-                <ResumePage />
-              </Suspense>
-            }
-          /> */}
+
           <Route
             path="*"
             element={<p> yikes - there's nothing at this url. try again ? </p>}
