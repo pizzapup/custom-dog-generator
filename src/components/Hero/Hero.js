@@ -20,12 +20,11 @@ export default function Hero() {
           </div>
           <div className="sparkle-wrapper">
             <h2>Ready to design your own dog illustration? </h2>
-            <div>
-              <Sparkles>
-                <Link to="/createdog" className="hero-btn">
-                  <Sparkles> Lets do this</Sparkles>
-                </Link>
-              </Sparkles>
+            <div className="sparkles-btn">
+              <Sparkles></Sparkles>
+              <Link to="/createdog" className="hero-btn">
+                Let's do this
+              </Link>
             </div>
           </div>
         </div>

@@ -60,6 +60,7 @@ header {
       margin: 0;
       padding: 5px;
       height: 65px;
+      width: 65px;
       aspect-ratio: 1/1;
       cursor: pointer;
       background-color: transparent;
@@ -144,4 +145,8 @@ header {
       //   }
     }
   }
+}
+.navlink--active {
+  text-decoration: 2px solid underline var(--currColor);
+  text-underline-offset: 2.5px;
 }

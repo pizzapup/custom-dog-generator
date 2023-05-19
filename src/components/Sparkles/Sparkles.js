@@ -83,6 +83,8 @@ const spin = keyframes`
 const Wrapper = styled.span`
   display: inline-block;
   position: relative;
+  height: 100%;
+  width: 100%;
 `;
 const SparkleWrapper = styled.span`
   position: absolute;
@@ -101,5 +103,7 @@ const ChildWrapper = styled.strong`
   position: relative;
   z-index: 1;
   font-weight: bold;
+  height: 100%;
+  width: 100%;
 `;
 export default Sparkles;

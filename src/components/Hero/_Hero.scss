@@ -1,51 +1,42 @@
 .hero {
-  @include flex($d: column, $a: center);
+  margin: auto;
+  @include flex($c: center);
   .hero-inner {
-    // border: 1px solid black;
-    // box-shadow: $box-shadow;
-    // box-shadow: ;
+    margin: 10px;
     margin-top: 55px;
-    padding: 20px;
+    padding: 15px;
+    height: 380px;
     max-width: 600px;
     position: relative;
     background: white;
     border-radius: 50px;
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+      // transform: translate3d(2px, 6px, 0) scale(0.97);
+      filter: blur(24px);
+      opacity: var(0.55);
+      transition: opacity 0.3s;
+      border-radius: inherit;
+    }
   }
-}
-.hero-inner:before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-  transform: translate3d(2px, 6px, 0) scale(0.97);
-  filter: blur(24px);
-  opacity: var(0.55);
-  transition: opacity 0.3s;
-  border-radius: inherit;
-}
-
-.hero-inner::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit;
-  border-radius: inherit;
 }
 
 h1 {
   text-align: center;
 }
 .sparkle-wrapper {
-  height: 250px;
-  @include flex($d: column, $a: center, $j: space-evenly);
+  height: 150px;
+  .sparkles-btn {
+    width: 150px;
+    margin: 15px auto;
+  }
   .sparkle {
     opacity: 0;
   }
@@ -54,20 +45,17 @@ h1 {
       opacity: 1;
     }
   }
-  a {
-    background-color: $blue;
+  .hero-btn {
+    border: 2px solid $blue;
+    padding: 15px;
+    outline: 2px dashed transparent;
     color: $white;
-    @include fillLeftToRight($blue, $blue-hover);
-    transition: all 0.5s;
+    text-decoration: none;
+    font-size: large;
+    @include fillLeftToRight($blue, $green);
     border-radius: 5px;
-    padding: 25px 35px;
     &:hover {
-      border: 2px solid $blue;
-    }
-    @include focus {
-      outline: 2px solid $blue;
-      border-radius: 5px;
-      outline-offset: 2px;
+      border: 2px solid $pink;
     }
   }
 }
@@ -86,7 +74,8 @@ h2 {
   }
 }
 .hero-preview {
-  @include flex($c: center);
+  width: 350px;
+  margin: 35px auto;
   .dog-preview {
     background-color: transparent;
   }
