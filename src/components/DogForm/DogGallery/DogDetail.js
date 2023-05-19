@@ -74,42 +74,102 @@ export default function DogDetail() {
   }
   return (
     <>
-      <div id={id} className="dog-details">
-        <div>
-          <DogPreview values={data} />
-        </div>
+      <Level>
+        <H>Details About {data.name}</H>
+        <div id={id} className="dog-details">
+          <div className="preview-container">
+            <DogPreview values={data} />
+          </div>
 
-        <div className="dog-details-textpanel">
-          <Level>
-            <H>{data.name}</H>
-          </Level>
-          <ToastContainer />
-          <ul>
-            <li>Name: {data.name}</li>
-            <li>
-              Snout: <span className="proper">{data.nose}</span> nose with{" "}
-              {data.mouth === "tongue"
-                ? "tongue sticking out"
-                : data.mouth === "straight"
-                ? "a straight mouth"
-                : data.mouth}
-            </li>
-
-            <li className="proper">
-              Eyes: {data.eyes} | {data.eyeColorName} ({data.eyeColor})
-            </li>
-            <li className="proper">
-              Body: {data.body} | {data.bodyColorName} ({data.bodyColor})
-            </li>
-            {data.timestamp && <li>{data.timestamp}</li>}
-          </ul>
-          <div className="btns">
-            <button onClick={archivePrompt}>send home</button>
-            {/* <button onClick={initUpdate}>update</button> */}
-            <button onClick={goBack}>go back to gallery</button>
+          <div className="dog-details-textpanel">
+            <ToastContainer />
+            <ul>
+              <li className="proper li-name sub-li ">
+                <div>
+                  {" "}
+                  <Level>
+                    <H className="li-ul-heading">Name</H>
+                  </Level>{" "}
+                  <span className="li-title">Name:</span>{" "}
+                  <span className="proper">{data.name}</span>
+                </div>
+              </li>
+              <li className="sub-li li-appearance-ul">
+                <ul>
+                  <Level>
+                    <H className="li-ul-heading">Appearance</H>
+                  </Level>{" "}
+                  <li>
+                    <span className="li-title">Snout: </span>
+                    <span className="proper">{data.nose}</span> nose with{" "}
+                    {data.mouth === "tongue"
+                      ? "tongue sticking out"
+                      : data.mouth === "straight"
+                      ? "a straight mouth"
+                      : data.mouth}
+                  </li>
+                  <li className="proper">
+                    <span className="li-title">Eyes: </span>{" "}
+                    <span className="proper">{data.eyes}</span> |{" "}
+                    {data.eyeColorName} ({data.eyeColor}){" "}
+                    <span
+                      className="color-preview"
+                      style={{
+                        "--currColor": data.eyeColor,
+                        color: data.eyeColor,
+                      }}
+                    >
+                      color
+                    </span>
+                  </li>
+                  <li className="proper">
+                    <span className="li-title">Body: </span>
+                    {data.body} | {data.bodyColorName} ({data.bodyColor}){" "}
+                    <span
+                      className="color-preview"
+                      style={{
+                        "--currColor": data.bodyColor,
+                        color: data.bodyColor,
+                      }}
+                    >
+                      color
+                    </span>
+                  </li>
+                </ul>
+              </li>
+              <li className="li-about-ul sub-li ">
+                <ul>
+                  {" "}
+                  <Level>
+                    <H className="li-ul-heading">Personality</H>
+                  </Level>{" "}
+                  <li>
+                    <span className="li-title">Favorite Toy:</span>{" "}
+                    {data.favtoy ? data.favtoy : "still figuring it out"}
+                  </li>
+                  <li>
+                    <div className="li-about">
+                      {" "}
+                      <div>
+                        <span className="li-title">About {data.name}: </span>
+                      </div>
+                      <div className="li-about-data">
+                        {data.about ? data.about : "still figuring it out"}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              {data.timestamp && <li>{data.timestamp}</li>}
+            </ul>
+            <div className="btns">
+              <button onClick={archivePrompt}>send home</button>
+              {/* <button onClick={initUpdate}>update</button> */}
+              <button onClick={goBack}>go back to gallery</button>
+            </div>
           </div>
         </div>
-      </div>
+      </Level>
     </>
   );
 }

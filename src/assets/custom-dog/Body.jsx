@@ -19,7 +19,7 @@ const Chonky = ({main, outline}) => {
 };
 const Medium = ({main, outline}) => {
   return (
-    <svg width="100%" viewBox="0 0 3300 3300">
+    <svg width="100%" viewBox="0 0 3300 3300" className="prev--body">
       <path
         fill={main}
         stroke={outline}

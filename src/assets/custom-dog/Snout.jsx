@@ -35,7 +35,7 @@ export default function Snout({
   return (
     <>
       <svg viewBox="0 0 3200 3200">
-        <path d={noseData.path} fill={noseColor} />
+        <path d={noseData.path} fill={noseColor} className="prev--snout" />
       </svg>
       <Mouth mouth={mouth} mouthType={mouthType} color={color} />
     </>

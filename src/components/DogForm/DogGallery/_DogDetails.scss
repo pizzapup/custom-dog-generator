@@ -1,0 +1,101 @@
+.dog-details {
+  @include flex($w: wrap);
+  .dog-preview {
+    max-height: 600px;
+    min-height: 400px;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+  }
+  > * {
+    margin: 8px;
+    flex: 1;
+  }
+  .dog-details-textpanel {
+    min-width: 300px;
+  }
+  .btns {
+    button {
+      @extend %btn-primary;
+      width: 150px;
+    }
+  }
+  .color-preview {
+    display: inline-block;
+    color: var(--currColor);
+    background-color: var(--currColor);
+    aspect-ratio: 1/1;
+    @include size($both: 2rem);
+    font-size: xx-small;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    gap: 10px;
+  }
+
+  li {
+    font-size: large;
+    margin: 5px 0;
+    @include flex($a: center, $g: 5px);
+    ul {
+      width: 100%;
+      padding: 5px;
+    }
+  }
+  .li-ul-heading {
+    padding: 0;
+    margin: 0;
+    color: $blue;
+    border-bottom: 2px solid lighten($blue, 30);
+    width: 100%;
+  }
+  .li-title {
+    font-weight: 700;
+    margin-right: 5px;
+  }
+  .sub-li {
+    // border: 1px solid $blue-hover;
+    box-shadow: $box-shadow;
+    padding: 10px 5px;
+    border-radius: 5px;
+    margin: 15px 0;
+  }
+  .li-about {
+    width: 100%;
+    padding: 5px;
+    .li-about-data {
+      border-top: 1px solid lighten($blue, 30);
+      padding: 5px;
+      // text-align: center;
+      min-height: 80px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  }
+  .details-toast {
+    .prompt {
+      color: black;
+    }
+    .subprompt {
+      // color: $brown;
+      display: block;
+      font-style: italic;
+      font-size: smaller;
+    }
+    .prompt-btns {
+      @include flex;
+      margin: 0;
+      button {
+        flex: 1;
+        @extend %btn-primary;
+      }
+      .yes {
+        background-color: $red;
+      }
+      .nvm {
+        background-color: $blue;
+      }
+    }
+  }
+}

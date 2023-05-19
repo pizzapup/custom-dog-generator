@@ -66,7 +66,7 @@ export const AccessoryList = [
 export default function Accessory({accessory}) {
   const currAccessory = AllAccessories[accessory];
   return (
-    <div>
+    <div className="prev--accessory">
       {accessory && (
         <>
           <img

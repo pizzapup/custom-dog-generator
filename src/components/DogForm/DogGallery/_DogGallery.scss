@@ -1,29 +1,24 @@
-.dog-name {
-  text-transform: capitalize;
-}
-.dog-gallery {
-  .dog-gallery--cards {
-    @include flex($w: wrap, $g: 15px);
-    margin: 15px;
-    padding: 15px;
-  }
+.dog-gallery--cards {
+  @include flex($w: wrap, $g: 15px);
+  margin: 15px;
+  padding: 15px;
 }
 .dog-card {
+  @include flex($d: column, $a: stretch, $g: 5px);
   flex: 1;
   min-width: 300px;
-  max-width: 500px;
+  max-width: 360px;
   position: relative;
-  @include flex($d: column, $a: stretch, $g: 5px);
   border-radius: 5px;
   box-shadow: $box-shadow;
   padding: 10px;
+  margin: auto;
   .dog-card-media {
     position: relative;
-    background-color: $black;
     .dog-card-media--overlay-bg {
-      background-color: rgba(000, 000, 000, 0);
       @include size($both: 100%);
       @include positioning(all);
+      background-color: rgba(000, 000, 000, 0);
     }
     .dog-card-media--overlay-link {
       flex: 0;
@@ -31,14 +26,13 @@
       line-height: 0;
       .dog-card-media--overlay-link-text {
         @include positioning(all);
-
         @include flex($c: center);
       }
       &::after {
-        content: "";
-        background-color: transparent;
         @include size($both: 100%);
         @include positioning(all);
+        content: "";
+        background-color: transparent;
       }
     }
     &:hover {
@@ -56,9 +50,13 @@
   }
 
   .dog-card-bottom {
-    flex: 1;
-    height: 100px;
     text-align: center;
+    h1,
+    h2,
+    h3,
+    h4 {
+      padding: 0;
+    }
     .dog-card-bottom--btns {
       @include flex;
       .dog-card-bottom--btns-btn {
@@ -88,52 +86,5 @@
   .preview-img-accessory {
     @include size($both: 100%);
     @include positioning(all);
-  }
-}
-.dog-details {
-  @include flex($w: wrap);
-  .dog-preview {
-    max-height: 600px;
-    min-height: 400px;
-    max-width: 600px;
-    border-radius: 8px;
-  }
-  > * {
-    margin: 8px;
-    flex: 1;
-  }
-  .dog-details-textpanel {
-    min-width: 300px;
-  }
-  .btns {
-    button {
-      @extend %btn-primary;
-      width: 150px;
-    }
-  }
-  .details-toast {
-    .prompt {
-      color: black;
-    }
-    .subprompt {
-      // color: $brown;
-      display: block;
-      font-style: italic;
-      font-size: smaller;
-    }
-    .prompt-btns {
-      @include flex;
-      margin: 0;
-      button {
-        flex: 1;
-        @extend %btn-primary;
-      }
-      .yes {
-        background-color: $red;
-      }
-      .nvm {
-        background-color: $blue;
-      }
-    }
   }
 }

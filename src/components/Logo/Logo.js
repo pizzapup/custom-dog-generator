@@ -13,6 +13,7 @@ const Logo = () => {
   return (
     <>
       <div className="logo">
+        {/* idea: add little dog image that pops up under one of the letters. reminds me of picassos hidden dog in Le Moulin de la Galette "maybe he just wasnt feeling the dog" */}
         {logoData.map((letter, index) => (
           <span
             key={index}
