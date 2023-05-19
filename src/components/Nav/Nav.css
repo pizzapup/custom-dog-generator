@@ -1,186 +1,140 @@
-header {
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0px;
-}
-.logo-link-wrapper {
-  text-decoration: none;
-}
-header .logo-link {
-  display: flex;
-  justify-content: center;
-}
-
-nav {
-  flex: 1;
-}
-nav .nav-btn {
+.navbar .toggle {
   display: none;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  gap: 10px;
+.nav-logo {
+  flex: 2;
+  text-decoration: none;
 }
-.navlink-li {
+header {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: palegoldenrod; */
+}
+
+.nav-logo {
+  flex: 1.5;
+}
+.navbar {
   flex: 1;
-  border: 2px solid transparent;
-  outline: 2px solid transparent;
-  text-decoration-color: transparent;
-  border-radius: var(--radii);
-  background-color: #fafafa;
-  white-space: nowrap;
-  min-height: 45px;
+}
+.menu-nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.menu-nav li a,
+.menu-nav li span {
+  text-decoration: 1px solid underline;
+  text-underline-offset: 1.5px;
+  border: 1px dotted transparent;
   color: black;
 }
-.navlink-li:focus,
-.navlink-li:focus-visible,
-.navlink-li:focus-within,
-.navlink-li:hover {
-  background-color: aliceblue;
+.menu-nav li:hover a {
+  transition: background 0.3s;
+  text-decoration: 2px solid underline var(--currColor);
 }
-.navlink-li:focus,
-.navlink-li:focus-visible,
-.navlink-li:focus-within {
-  background-color: aliceblue;
-  text-decoration-color: var(--colors-blue);
-  outline: 2px dotted var(--colors-blue);
+.menu-nav .navlink--active {
+  text-decoration: 2px solid underline var(--currColor);
 }
-.navlink-li .navlink {
-  text-decoration-color: transparent;
-  text-underline-offset: 2px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  flex-wrap: nowrap;
-  height: 100%;
-  border-radius: var(--radii);
-}
-.navlink-li .navlink:focus,
-.navlink-li .navlink:focus-visible,
-.navlink-li .navlink:focus-within,
-.navlink-li .navlink:hover {
-  text-decoration-color: var(--colors-blue);
-  color: var(--colors-blue);
-}
-.navlink-li:has(.navlink--active) .navlink {
-  text-decoration-color: var(--colors-green);
-  text-decoration-thickness: 2px;
-  color: var(--colors-blue);
-}
-.navlink-li:has(.navlink--active) .navlink:focus,
-.navlink-li:has(.navlink--active) .navlink:focus-visible,
-.navlink-li:has(.navlink--active) .navlink:focus-within,
-.navlink-li:has(.navlink--active) .navlink:hover {
-  text-decoration-color: purple;
-  text-decoration-thickness: 1px;
-}
-@media only screen and (min-width: 736px) {
-  header .logo-link {
-    flex: 0.5;
-  }
+.menu-nav li:focus a,
+.menu-nav li:focus-visible a,
+.menu-nav li:focus-within a {
+  outline: 1px dashed var(--currColor);
+  background-color: var(--currColor);
 }
 @media only screen and (max-width: 736px) {
-  header .logo-link {
-    height: 50px;
-    margin-bottom: 10px;
-  }
-  nav {
-    z-index: 998;
-    background-color: #fafafa;
-    width: 100%;
-  }
-  .logo {
-    background-color: #fafafa;
-  }
+  /*==========================
+Sidebar navigation
+========================*/
 
-  nav .nav-btn {
+  header {
     display: flex;
-    position: fixed;
-    z-index: 999;
-    top: 8px;
-    right: 8px;
-    opacity: 0;
-    width: 45px;
-    height: 40px;
+    justify-content: space-between;
+    /* background-color: palegoldenrod; */
   }
-  nav .nav {
-    position: fixed;
-    top: -500px;
-    left: 0;
-    right: 0;
-    transition: all 0.5s ease-out;
-    padding-top: 50px;
+
+  .navbar {
+    flex: 1;
+    position: relative;
+    /* background-color: #005bb3; */
+    width: 100%;
+    width: fit-content;
+    height: 45px;
+    display: flex;
+  }
+  .navbar .toggle {
     display: block;
-  }
-  nav input:checked ~ .nav {
+    position: absolute;
     top: 0;
-  }
-
-  .navlink {
-    outline: var(--bo-color-solid);
-    padding: 25px 20px;
-    margin: 10px;
-  }
-  .navlink-li:focus,
-  .navlink-li:focus-visible,
-  .navlink-li:focus-within,
-  .navlink-li:hover {
-    background-color: #fafafa;
-    border: var(--border-outline-default);
-    outline: var(--border-outline-default);
-  }
-  .navlink-li:focus .navlink,
-  .navlink-li:focus-visible .navlink,
-  .navlink-li:focus-within .navlink {
-    background-color: #fafafa;
-    border: var(--bo-color-solid);
-    outline: var(--bo-color-dashed);
-    outline-offset: 1px;
-  }
-  .navlink-li:focus .navlink,
-  .navlink-li:focus-visible .navlink,
-  .navlink-li:focus-within .navlink,
-  .navlink-li:hover .navlink {
-    background-color: aliceblue;
-  }
-  .container {
-    border: var(--border-outline-default);
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 1/1;
     cursor: pointer;
-    padding: 5px 8px;
+    background-color: transparent;
+    border-color: transparent;
+    outline-color: transparent;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
   }
-  .bar1,
-  .bar2,
-  .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
+  .navbar .toggle:hover {
+    background-color: var(--colors-yellow);
+  }
+  .menu-nav {
+    font-size: 18px;
+    z-index: 9;
+    height: fit-content;
+    white-space: nowrap;
+    padding: 0px;
+    width: 0;
+    position: fixed;
+    top: 36px;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: var(--colors-yellow);
+    background-color: white;
+  }
+  .menu-nav.show-menu {
+    width: 50%;
+    background-color: #fafafa;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
   }
 
-  nav .burger-icon {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    padding: 0px;
+  .menu-nav li a,
+  .menu-nav li span {
+    display: block;
+    padding: 1rem;
+    margin: 10px 20px;
+    border-radius: 8px;
+    text-decoration-color: transparent;
+    text-decoration: 1px solid underline;
+    background-color: rgba(255, 255, 255, 1);
+    text-underline-offset: 1.5px;
+    border: 1px dotted transparent;
+    color: black;
   }
-  .bar {
-    border-radius: 10px;
+  .menu-nav li:hover a {
+    transition: background 0.3s;
+    text-decoration: 2px solid underline var(--currColor);
+    box-shadow: 0 0 0.5px 1px var(--currColor);
   }
-  nav input:checked ~ .burger-icon .bar1 {
-    transform: translate(0, 11px) rotate(-45deg);
+  .menu-nav .navlink--active {
+    text-decoration: 2px solid underline var(--currColor);
   }
-  nav input:checked ~ .burger-icon .bar2 {
-    opacity: 0;
+  .menu-nav li:focus a,
+  .menu-nav li:focus-visible a,
+  .menu-nav li:focus-within a {
+    outline: 1px dashed var(--currColor);
+    background-color: var(--currColor);
   }
-  nav input:checked ~ .burger-icon .bar3 {
-    transform: translate(0, -11px) rotate(45deg);
+}
+@media only screen and (max-width: 840px) {
+  .navbar {
+    /* background-color: orange; */
+    flex: 2;
   }
 }

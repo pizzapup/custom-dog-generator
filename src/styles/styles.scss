@@ -1,6 +1,9 @@
 @import "./variables";
 @import "./mixins";
 @import "./baseStyles";
+@import "../components/Logo/Logo.scss";
+@import "../components/Nav/Nav";
+@import "../components/Hero/Hero";
 @import "../components/DogForm/DogForm";
 @import "../assets/custom-dog/custom-dog";
 @import "../components/DogForm/DogGallery/DogGallery";

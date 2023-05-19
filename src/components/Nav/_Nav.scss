@@ -1,0 +1,147 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-logo {
+  flex: 2;
+  align-self: center;
+  text-decoration: none;
+}
+.navbar {
+  flex: 1;
+  .toggle {
+    display: none;
+  }
+  .menu-nav {
+    @include flex($j: space-evenly, $g: 8px);
+    list-style: none;
+    white-space: nowrap;
+    li {
+      a,
+      span {
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 0px;
+        border: 1px dotted transparent;
+        color: black;
+        transition: all 0.3s;
+        padding: 9px 15px;
+        border-radius: 5px;
+        @include focus {
+          outline: 1px dashed var(--currColor);
+          background-color: $grey;
+        }
+      }
+      &:hover {
+        a {
+          text-decoration: 2px solid underline var(--currColor);
+          text-underline-offset: 2px;
+          background-color: $grey;
+        }
+      }
+    }
+    .navlink--active {
+      text-decoration: 2px solid underline var(--currColor);
+      text-underline-offset: 2.5px;
+    }
+  }
+}
+
+@include mq-max("736px") {
+  header {
+    height: 68px;
+  }
+  .navbar {
+    position: relative;
+    // height: 45px;
+    display: flex;
+    .toggle {
+      display: block;
+      @include positioning($t: 0, $r: 0);
+      margin: 0;
+      padding: 5px;
+      height: 65px;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      background-color: transparent;
+      outline-color: transparent;
+      border: 2px solid black;
+      border-radius: 50%;
+      transition: $transition;
+      &:hover {
+        background-color: $yellow;
+      }
+      @include focus {
+        outline: 2px solid $blue;
+        outline-offset: 2px;
+      }
+      //   &:active {
+      //     background-color: $lavender-transparent;
+      //   }
+    }
+    .menu-nav {
+      background-color: #fafafa;
+      box-shadow: $box-shadow-alt;
+      font-size: 18px;
+      z-index: 9;
+      height: fit-content;
+      white-space: nowrap;
+      padding: 0;
+      width: 0;
+      @include positioning($t: 56px, $r: -8px, $position: fixed);
+      @include flex($d: column);
+      overflow-x: hidden;
+      transition: width 0.5s;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+
+      li {
+        a,
+        span {
+          display: block;
+          padding: 15px;
+          margin: 10px 20px;
+          border-radius: 8px;
+          text-decoration: 1px solid underline transparent;
+          background-color: $white;
+          text-underline-offset: 1.5px;
+          border: 1px dotted transparent;
+          color: black;
+          &:hover {
+            background-color: $white;
+            transition: background 0.3s;
+            text-decoration: 2px solid underline var(--currColor);
+            box-shadow: 0 0 0.5px 1px var(--currColor);
+          }
+          @include focus {
+            outline: 1px dashed var(--currColor);
+            background-color: var(--currColor);
+          }
+        }
+      }
+    }
+    .menu-nav.show-menu {
+      width: 250px;
+    }
+    $toggle-time: 0.5s;
+    .toggle--closed {
+      @include reducedMotionNoPreference {
+        // transform: rotate(360deg);
+        transition: transform $toggle-time;
+      }
+    }
+    .toggle--open {
+      background-color: $black;
+      color: $white;
+      @include reducedMotionNoPreference {
+        transform: rotate(360deg);
+        transition: transform $toggle-time;
+      }
+      &:hover {
+        background-color: $black-hover;
+      }
+      //   &:active {
+      //     background-color: $lavender-transparent;
+      //   }
+    }
+  }
+}

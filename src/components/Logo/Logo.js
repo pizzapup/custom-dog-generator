@@ -1,15 +1,13 @@
-import "./Logo.css";
-
 const Logo = () => {
   const logoData = [
-    { letter: "P", colors: [`orange`, "blue"] },
-    { letter: "I", colors: ["lightblue", "pink"] },
-    { letter: "Z", colors: ["green", "red"] },
-    { letter: "Z", colors: ["yellow", "lightblue"] },
-    { letter: "A", colors: ["pink", "red"] },
-    { letter: "P", colors: ["offwhite", "green"] },
-    { letter: "U", colors: ["orange", "blue"] },
-    { letter: "P", colors: ["lightblue", "pink"] },
+    {letter: "P", colors: [`orange`, "blue"]},
+    {letter: "I", colors: ["lightblue", "pink"]},
+    {letter: "Z", colors: ["green", "red"]},
+    {letter: "Z", colors: ["yellow", "lightblue"]},
+    {letter: "A", colors: ["pink", "red"]},
+    {letter: "P", colors: ["offwhite", "green"]},
+    {letter: "U", colors: ["orange", "blue"]},
+    {letter: "P", colors: ["lightblue", "pink"]},
   ];
 
   return (

@@ -1,0 +1,181 @@
+.hero {
+  @include flex($d: column, $a: center);
+  .hero-inner {
+    // border: 1px solid black;
+    // box-shadow: $box-shadow;
+    // box-shadow: ;
+    margin-top: 35px;
+    padding: 20px;
+    max-width: 600px;
+    position: relative;
+    background: white;
+    border-radius: 50px;
+  }
+}
+.hero-inner:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  transform: translate3d(2px, 6px, 0) scale(0.97);
+  filter: blur(24px);
+  opacity: var(0.55);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+.hero-inner::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+h1 {
+  text-align: center;
+}
+.sparkle-wrapper {
+  height: 250px;
+  @include flex($d: column, $a: center, $j: space-evenly);
+  .sparkle {
+    opacity: 0;
+  }
+  &:hover {
+    .sparkle {
+      opacity: 1;
+    }
+  }
+  a {
+    background-color: $blue;
+    color: $white;
+    @include fillLeftToRight($blue, $blue-hover);
+    transition: all 0.5s;
+    border-radius: 5px;
+    padding: 25px 35px;
+    &:hover {
+      border: 2px solid $blue;
+    }
+    @include focus {
+      outline: 2px solid $blue;
+      border-radius: 5px;
+      outline-offset: 2px;
+    }
+  }
+}
+.hero-link-inText {
+  color: $blue;
+  font-weight: 500;
+  padding: 2px 5px;
+  @include fillLeftToRight($white, $blue);
+  &:hover {
+    color: white;
+    text-decoration: 2px solid underline hotpink;
+  }
+}
+.imgs {
+  margin: 35px;
+  @include flex($g: 10px, $w: wrap);
+  div {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .imgs-img {
+    position: relative;
+    background-image: url("./hero-imgs/dog.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    .imgs-inner {
+      background-color: transparent;
+    }
+    .imgs-inner2 {
+      @include positioning(0px, 0px, 0px, 0px);
+      background-size: contain;
+    }
+  }
+
+  .img0 {
+    background-color: $orange;
+    .imgs-inner {
+      background-image: url("./hero-imgs/skate.png");
+      @include positioning(0px, 0px, 0px, 0px);
+      background-color: transparent;
+      background-size: contain;
+      @include reducedMotionNoPreference {
+        animation: skate 4s infinite alternate-reverse;
+      }
+      background-color: $orange;
+    }
+  }
+  .img1 {
+    position: relative;
+    background-color: $pink;
+    .imgs-inner {
+      background-image: url("./hero-imgs/hat.png");
+      @include positioning(-48px, 0px, 0px, -28px);
+      background-size: 45px;
+      @include reducedMotionNoPreference {
+        animation: fadeInOut 3s infinite alternate-reverse;
+      }
+    }
+  }
+  .img2 {
+    background-color: $orange;
+    .imgs-inner {
+      background-image: url("./hero-imgs/hat.png");
+      @include positioning(0px, 0px, 0px, 0px);
+      background-color: transparent;
+      background-size: contain;
+      background-color: $orange;
+      @include reducedMotionNoPreference {
+        animation: skate 4s infinite 0.7s alternate-reverse;
+      }
+    }
+  }
+  .img3 {
+    background-color: $lightblue;
+    .imgs-inner {
+      background-image: url("./hero-imgs/trapper.png");
+      @include positioning(-20px, 0px, 0px, -25px);
+      background-size: 80px;
+      @include reducedMotionNoPreference {
+        animation: fadeInOut 3s infinite 1s alternate-reverse;
+      }
+    }
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes skate {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}

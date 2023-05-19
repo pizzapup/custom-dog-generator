@@ -48,6 +48,7 @@
       .dog-card-media--overlay-link-text {
         color: white;
         .dog-name {
+          padding: 0 5px;
           text-decoration: underline var(--colors-blue) 2px;
         }
       }
