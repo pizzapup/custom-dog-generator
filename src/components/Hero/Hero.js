@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom";
 import Sparkles from "../Sparkles/Sparkles";
+import DogPreview from "../DogForm/DogPreview/DogPreview";
+import {Slideshow} from "../Slideshow/Slideshow";
 export default function Hero() {
   return (
     <>
@@ -27,24 +29,9 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="imgs">
-          <div className="imgs-img img0">
-            <div className="imgs-inner"></div>
-            <div className="imgs-inner2"></div>
-          </div>
-          <div className="imgs-img img1">
-            <div className="imgs-inner"></div>
-            <div className="imgs-inner2"></div>
-          </div>
-          <div className="imgs-img img2">
-            <div className="imgs-inner"></div>
-            <div className="imgs-inner2"></div>
-          </div>
-          <div className="imgs-img img3">
-            <div className="imgs-inner"></div>
-            <div className="imgs-inner2"></div>
-          </div>
-        </div>
+      </div>
+      <div className="hero-preview">
+        <Slideshow />
       </div>
     </>
   );

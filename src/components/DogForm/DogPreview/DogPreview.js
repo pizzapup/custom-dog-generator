@@ -1,7 +1,11 @@
 import PreviewImage from "../../../assets/custom-dog";
 import {defaultValues} from "../data";
 
-export default function DogPreview({values = defaultValues, children}) {
+export default function DogPreview({
+  values = defaultValues,
+  accessory = "none",
+  children,
+}) {
   return (
     <>
       <div className="dog-preview">
@@ -22,6 +26,9 @@ export default function DogPreview({values = defaultValues, children}) {
         />
         {values.accessory !== "none" && (
           <PreviewImage.Accessory accessory={values.accessory} />
+        )}
+        {accessory !== "none" && (
+          <PreviewImage.Accessory accessory={accessory} />
         )}
       </div>
       {children}

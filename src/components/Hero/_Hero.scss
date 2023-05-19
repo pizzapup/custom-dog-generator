@@ -4,7 +4,7 @@
     // border: 1px solid black;
     // box-shadow: $box-shadow;
     // box-shadow: ;
-    margin-top: 35px;
+    margin-top: 55px;
     padding: 20px;
     max-width: 600px;
     position: relative;
@@ -71,6 +71,10 @@ h1 {
     }
   }
 }
+h2 {
+  border-top: 2px solid $blue;
+  padding-top: 10px;
+}
 .hero-link-inText {
   color: $blue;
   font-weight: 500;
@@ -81,101 +85,9 @@ h1 {
     text-decoration: 2px solid underline hotpink;
   }
 }
-.imgs {
-  margin: 35px;
-  @include flex($g: 10px, $w: wrap);
-  div {
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 120px;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .imgs-img {
-    position: relative;
-    background-image: url("./hero-imgs/dog.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 120px;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    .imgs-inner {
-      background-color: transparent;
-    }
-    .imgs-inner2 {
-      @include positioning(0px, 0px, 0px, 0px);
-      background-size: contain;
-    }
-  }
-
-  .img0 {
-    background-color: $orange;
-    .imgs-inner {
-      background-image: url("./hero-imgs/skate.png");
-      @include positioning(0px, 0px, 0px, 0px);
-      background-color: transparent;
-      background-size: contain;
-      @include reducedMotionNoPreference {
-        animation: skate 4s infinite alternate-reverse;
-      }
-      background-color: $orange;
-    }
-  }
-  .img1 {
-    position: relative;
-    background-color: $pink;
-    .imgs-inner {
-      background-image: url("./hero-imgs/hat.png");
-      @include positioning(-48px, 0px, 0px, -28px);
-      background-size: 45px;
-      @include reducedMotionNoPreference {
-        animation: fadeInOut 3s infinite alternate-reverse;
-      }
-    }
-  }
-  .img2 {
-    background-color: $orange;
-    .imgs-inner {
-      background-image: url("./hero-imgs/hat.png");
-      @include positioning(0px, 0px, 0px, 0px);
-      background-color: transparent;
-      background-size: contain;
-      background-color: $orange;
-      @include reducedMotionNoPreference {
-        animation: skate 4s infinite 0.7s alternate-reverse;
-      }
-    }
-  }
-  .img3 {
-    background-color: $lightblue;
-    .imgs-inner {
-      background-image: url("./hero-imgs/trapper.png");
-      @include positioning(-20px, 0px, 0px, -25px);
-      background-size: 80px;
-      @include reducedMotionNoPreference {
-        animation: fadeInOut 3s infinite 1s alternate-reverse;
-      }
-    }
-  }
-}
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes skate {
-  0% {
-    transform: rotate(15deg);
-  }
-  100% {
-    transform: rotate(-15deg);
+.hero-preview {
+  @include flex($c: center);
+  .dog-preview {
+    background-color: transparent;
   }
 }
