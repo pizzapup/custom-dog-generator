@@ -72,8 +72,7 @@ export default function DogForm({initialValues}) {
         </div>
         <div className="submit-btn-wrapper">
           <button type="submit" className="submit-btn">
-            <span className="textTwo">Submit!</span>
-            <span className="textOne">Lookin good - let's do this!</span>
+            Submit
           </button>
         </div>
       </form>

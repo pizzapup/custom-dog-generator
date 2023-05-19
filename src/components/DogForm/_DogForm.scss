@@ -61,29 +61,18 @@
   }
 
   .submit-btn-wrapper {
-    width: 90%;
-    margin: 10px auto;
+    @include flex($j: center);
+    margin-top: 1rem;
     .submit-btn {
-      height: 50px;
-      width: 100%;
+      height: 45px;
+      width: 80%;
       @extend %btn-primary;
-      span {
-        transition: $transition;
-      }
-      .textOne {
-        display: block;
-      }
-      .textTwo {
-        display: none;
-      }
+      background-color: darken($green, 15);
+      filter: saturate(10%);
+      transition: all 0.5s;
       &:hover {
         background-color: $green;
-        .textOne {
-          display: none;
-        }
-        .textTwo {
-          display: block;
-        }
+        filter: saturate(100%);
       }
     }
   }
@@ -166,11 +155,13 @@
 .prev-next-btns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 50px;
+  grid-gap: 3rem;
+  height: 55px;
   button {
     @extend %btn-primary;
     background-color: $blue;
-    width: 100px;
+    width: 100%;
+    font-size: medium;
 
     div {
       @include flex($a: center);
@@ -187,8 +178,6 @@
     }
   }
   .arrow-icon {
-    // border: 2px solid hotpink;
-    // flex: 1;
     margin: 0 5px;
     height: 25px;
     width: 25px;
@@ -202,10 +191,16 @@
   .prev {
     grid-column: 1;
     justify-self: start;
+    div {
+      justify-content: flex-start;
+    }
   }
   .next {
     grid-column: 2;
     justify-self: end;
+    div {
+      justify-content: flex-end;
+    }
   }
   .isShowing {
     display: block;

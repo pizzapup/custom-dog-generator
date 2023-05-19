@@ -50,6 +50,7 @@ header {
   header {
     height: 68px;
   }
+
   .navbar {
     position: relative;
     // height: 45px;
@@ -144,6 +145,10 @@ header {
       //     background-color: $lavender-transparent;
       //   }
     }
+  }
+  .navlink--active {
+    text-decoration: 2px solid underline var(--currColor);
+    text-underline-offset: 2.5px;
   }
 }
 .navlink--active {

@@ -1,117 +1,110 @@
-.hero {
-  .hero-inner {
-    margin: 20px;
-    margin-top: 55px;
-    padding: 20px;
-    position: relative;
-    background: white;
-    border-radius: 50px;
-    max-height: 50vh;
-    &::before {
-      content: "";
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-      filter: blur(24px);
-      opacity: var(0.55);
-      transition: opacity 0.3s;
-      border-radius: inherit;
-    }
-  }
-}
-.hero-h1 {
-  display: flex;
-  .h1-stars {
-    font-size: xx-large;
-  }
-}
-h1 {
-  text-align: center;
-  // white-space: nowrap;
-}
-h2 {
-  border-top: 2px solid $blue;
-}
-.sparkle-wrapper {
-  text-align: center;
-  .sparkles-btn {
-    width: 150px;
-    height: 55px;
+.hero-content {
+  @include flex($g: 1rem, $w: wrap);
+  box-shadow: $box-shadow;
+  border-radius: 20px;
+  margin: 1em auto;
+  background-color: $grey;
+  padding: 2rem;
+  .hero-text {
+    flex: 2;
+    background-color: $white;
+    padding: 0.25rem;
     border-radius: 5px;
-    background-color: $green;
-    border-color: $blue;
-    @extend %inputStyles;
-    @include fillLeftToRight($blue, $blue-hover);
-    margin: auto;
-    .hero-btn {
-      color: white;
-      height: 100%;
-      @include flex($c: center);
-      width: 100%;
-      text-decoration: 1px solid underline transparent;
-      text-underline-offset: 3px;
-      transition: $transition;
+    .hero-h1 {
+      text-align: center;
       display: flex;
-      &:hover {
-        text-decoration: 2px solid underline $pink;
-        text-underline-offset: 3px;
+      margin: auto;
+      .h1-stars {
+        font-size: xx-large;
+      }
+    }
+    .hero-text-mid {
+      min-width: 250px;
+      margin: 1rem;
+      a {
+        color: $blue;
+        &:hover {
+          color: $green;
+        }
+      }
+    }
+    .sparkles-btn {
+      margin: 1rem;
+      padding: 0.5rem;
+      border-radius: 15px;
+      .hero-btn-link {
+        border-radius: 5px;
+        @extend %inputStyles;
+        background-color: $blue;
+        color: $white;
+        height: 55px;
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 2px;
+        @include flex($c: center);
+        &:hover {
+          background-color: $blue-hover;
+          border-color: $blue-hover;
+          text-decoration: 2px solid underline $pink;
+        }
       }
     }
   }
-  .sparkle {
-    opacity: 0;
+
+  .hero-slideshow {
+    flex: 1;
+    min-width: 250px;
+    margin: auto;
   }
-  &:hover {
-    .sparkle {
-      opacity: 1;
+}
+@mixin decor-img(
+  $img: "../Hero/hero-img/skate.png",
+  $bg: transparent,
+  $rotation: 8deg,
+  $size: 150px
+) {
+  background-color: $bg;
+  background-image: url($img);
+  background-size: 100px;
+  background-position: center;
+  height: 200px;
+  min-width: 200px;
+  flex: 1;
+  @include flex($c: center);
+  div {
+    height: $size;
+    width: $size;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: $bg;
+    border-radius: 50%;
+    background-image: url($img);
+    transform: rotate($rotation);
+    --init-pos: $rotation;
+    @include reducedMotionNoPreference {
+      animation: swing 3s infinite alternate-reverse;
     }
   }
 }
 
-.hero-link-inText {
-  color: $blue;
-  font-weight: 500;
-  padding: 2px 5px;
-  @include fillLeftToRight($white, $blue);
-  &:hover {
-    color: white;
-    text-decoration: 2px solid underline hotpink;
-  }
-}
-.hero-preview {
-  width: 350px;
-  margin: 35px auto;
-  .dog-preview {
-    background-color: transparent;
-  }
+.decor-imgs {
+  @include flex($g: 0.25rem, $w: wrap, $j: center);
 }
 
-.hero-bg {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: -10;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: auto;
-  .dog-preview:nth-child(1n) {
-    background-color: var(--colors-offwhite);
+@keyframes swing {
+  0% {
+    transform: rotate(var(--init-pos));
   }
-  .dog-preview:nth-child(2n) {
-    background-color: $lightblue;
+  100% {
+    transform: rotate(-8deg);
   }
-  .dog-preview:nth-child(4n) {
-    background-color: $pink;
-  }
-  .dog-preview:nth-child(5n) {
-    background-color: $orange;
-  }
-  @include mq-sm {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
+}
+.decor-img-skate {
+  @include decor-img("../Hero/hero-imgs/skate.png", $pink, 8deg, 120px);
+}
+.decor-img-hat {
+  @include decor-img("../Hero/hero-imgs/hat.png", $offwhite, 8deg, 115px);
+}
+.decor-img-trapper {
+  @include decor-img("../Hero/hero-imgs/trapper.png", $lightblue, 8deg, 120px);
 }
