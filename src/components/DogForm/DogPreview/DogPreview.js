@@ -12,6 +12,7 @@ export default function DogPreview({
         <PreviewImage.Body
           body={values.body}
           bodyColor={values.bodyColor}
+          main={values.bodyColor}
           outlineColor={values.outlineColor}
         />
         <PreviewImage.Eyes

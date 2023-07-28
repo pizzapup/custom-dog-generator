@@ -1,3 +1,4 @@
+import "./custom-dog.css";
 const Chonky = ({main, outline}) => {
   return (
     <svg viewBox="0 0 3310 3310">
@@ -495,9 +496,12 @@ const list = {chonky: Chonky, medium: Medium, regular: Regular};
 export default function Body({
   body = "chonky",
   main = "#c7875b",
-  outline = "black",
-  bodyColor = main,
+  baseColor = "pink",
+  outline = "#000000",
 }) {
+  let bodyColor = main;
+
   const Component = list[body];
-  return <Component main={bodyColor} outline={"black"} />;
+  let BodyComp = <Component main={bodyColor} outline={outline} />;
+  return BodyComp;
 }

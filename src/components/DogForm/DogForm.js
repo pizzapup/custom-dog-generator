@@ -44,13 +44,13 @@ export default function DogForm({initialValues}) {
   }
   function handleColorInputChange(e) {
     const {name, value} = e.target;
-    handleInputChange(e);
+    setValues({...values, [name]: value});
     setColorChange([name, value]);
   }
   useEffect(() => {
+    let value = ntcName(colorChange[1]);
     const name = `${colorChange[0]}Name`;
-    const value = ntcName(colorChange[1]);
-    setValues({...values, [name]: value});
+    setValues({...values, [name]: `${value}`});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colorChange]);
 

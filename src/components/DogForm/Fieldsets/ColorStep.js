@@ -19,14 +19,14 @@ export const ColorStep = ({
           key={`${field.name}-${i}`}
           style={sendColorToCSS(field.hex)}
           className={
-            field.hex === values.eyeColor
+            field.hex === values.name
               ? "swatch-btn swatch-btn--selected"
               : "swatch-btn"
           }
         >
           <input
             type="radio"
-            name="eyeColor"
+            name={name}
             value={field.hex}
             onChange={handleColorInputChange}
           />
@@ -38,7 +38,7 @@ export const ColorStep = ({
       <label
         style={
           hasChanged
-            ? sendColorToCSS(values.eyeColor)
+            ? sendColorToCSS(`${values.name}`)
             : sendColorToCSS("linear-gradient(#e66465, #9198e5)")
         }
         onClick={() => setHasChanged(true)}
@@ -47,10 +47,10 @@ export const ColorStep = ({
         <input
           type="color"
           name={name}
-          value={values.eyeColor}
+          value={values.name}
           onChange={handleColorInputChange}
         />
-        <span className="sr-only">Custom color: {values.eyeColor}</span>
+        <span className="sr-only">Custom color: {values.name}</span>
       </label>
     </fieldset>
   );
